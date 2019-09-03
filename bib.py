@@ -6,14 +6,13 @@ from sklearn.tree import DecisionTreeClassifier
 
 class Data():
 
-    def __init__(self, simplify_classes:bool=True):
+    def __init__(self):
         self.features_train = pd.DataFrame()
         self.costs_train = pd.DataFrame()
         self.classes_train = pd.DataFrame()
         self.features_valid = pd.DataFrame()
         self.costs_valid = pd.DataFrame()
         self.classes_valid = pd.DataFrame()
-        self.simplify_classes = simplify_classes
 
     def get_data(self):
         '''
@@ -69,56 +68,67 @@ class Data():
         self.classes_valid = df_valid.iloc[:,11]
         self.costs_valid = df_valid.iloc[:,12:23]
 
-        if self.simplify_classes:
-            self.classes_train[self.classes_train!=0] = 1
-            self.classes_valid[self.classes_valid!=0] = 1
-            self.simplify_costs()
+        self.classes_train[self.classes_train!=0] = 1
+        self.classes_valid[self.classes_valid!=0] = 1
+        import pdb; pdb.set_trace()
+        self.simplify_costs()
+        import pdb; pdb.set_trace()
+        self.correct_misclassified_samples()
 
     def simplify_costs(self):
 
         costs0_train = self.costs_train.iloc[:,0].to_frame()
         costs1_train = self.costs_train.iloc[:,1:].copy()
-        costs1_train[costs1_train<0] = np.nan
+        costs1_train[costs1_train<0] = np.inf
         costs1_train_aux = costs1_train.min(axis=1)
 
         costs0_valid = self.costs_valid.iloc[:,0].to_frame()
         costs1_valid = self.costs_valid.iloc[:,1:].copy()
-        costs1_valid[costs1_valid<0] = np.nan
+        costs1_valid[costs1_valid<0] = np.inf
         costs1_valid_aux = costs1_valid.min(axis=1)
 
         self.costs_train = costs0_train.join(costs1_train_aux.to_frame())
         self.costs_valid = costs0_valid.join(costs1_valid_aux.to_frame())
 
-class Classifier(Data):
-    def __init__(self,max_depth:int=5, random_state:int=42,):
-        Data.__init__(self)
+        self.costs_train.columns=[0,1]
+        self.costs_valid.columns=[0,1]
+
+    def correct_misclassified_samples(self):
+        self.classes_train = self.costs_train.idxmin(axis=1).to_frame()
+        self.classes_valid = self.costs_valid.idxmin(axis=1).to_frame()
+        import pdb; pdb.set_trace()
+
+
+class Classifier():
+    def __init__(self,data:Data, max_depth:int=5, random_state:int=42,):
         self.max_depth=max_depth
         self.random_state=random_state
         self.total_cost = 0
         self.acc = 0
+        self.data = data
 
     def fit_tree(self):
         print('Fitting the decision tree')
         clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state)
-        clf.fit(self.features_train,self.classes_train)
-        y_pred = clf.predict(self.features_valid)
-        self.acc = clf.score(self.features_valid,self.classes_valid)
+        clf.fit(self.data.features_train,self.data.classes_train)
+        y_pred = clf.predict(self.data.features_valid)
+        self.acc = clf.score(self.data.features_valid,self.data.classes_valid)
         self.total_cost = self.calculate_cost_of_decisions(y_pred)
 
     def calculate_cost_of_decisions(self, y_pred):
         cost = 0
         for i in range(len(y_pred)):
             if(y_pred[i] == 0):
-                cost = cost + self.costs_valid.iloc[i,0]
+                cost = cost + self.data.costs_valid.iloc[i,0]
             else:
-                cost = cost + self.costs_valid.iloc[i,1]
+                cost = cost + self.data.costs_valid.iloc[i,1]
         return cost
 
     def calculate_minimal_cost(self):
         cost = 0
-        for i in range(len(self.classes_valid)):
-            if(self.classes_valid.iloc[i] == 0):
-                cost = cost + self.costs_valid.iloc[i,0]
+        for i in range(len(self.data.classes_valid)):
+            if(self.data.classes_valid.iloc[i] == 0):
+                cost = cost + self.data.costs_valid.iloc[i,0]
             else:
-                cost = cost + self.costs_valid.iloc[i,1]
+                cost = cost + self.data.costs_valid.iloc[i,1]
         return cost
