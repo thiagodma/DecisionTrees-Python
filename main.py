@@ -1,53 +1,51 @@
-import scipy.io
-import pandas as pd
-import numpy as np
-from sklearn.tree import DecisionTreeClassifier
-from sklearn import tree
-from sklearn.model_selection import train_test_split
-from sklearn.tree.export import export_text
-import pydotplus
-from IPython.display import Image
-import bib
+from bib import *
 
-data_d0 = scipy.io.loadmat('alldata_depth0.mat')
-data = pd.DataFrame(data_d0['data'])
+train_QP_22 = ['ChristmasTree_QP_22_depth0.csv','CrowdRun_QP_22_depth0.csv','DucksTakeOff_QP_22_depth0.csv',
+'PedestrianArea_QP_22_depth0.csv','RushHour_QP_22_depth0.csv','Sunflower_QP_22_depth0.csv']
+valid_QP_22 = ['Tractor_QP_22_depth0.csv','Wisley_QP_22_depth0.csv']
 
-qp = data_d0['qp']
-qp_out = [q[0] for q in qp]
-qp = pd.DataFrame(qp_out)
+train_QP_27 = ['ChristmasTree_QP_27_depth0.csv','CrowdRun_QP_27_depth0.csv','DucksTakeOff_QP_27_depth0.csv',
+'PedestrianArea_QP_27_depth0.csv','RushHour_QP_27_depth0.csv','Sunflower_QP_27_depth0.csv']
+valid_QP_27 = ['Tractor_QP_27_depth0.csv','Wisley_QP_27_depth0.csv']
 
-features = data.iloc[:,0:10]
-classes = data.iloc[:,10]
-costs = pd.read_csv('costs.csv',sep='|')
+train_QP_32 = ['ChristmasTree_QP_32_depth0.csv','CrowdRun_QP_32_depth0.csv','DucksTakeOff_QP_32_depth0.csv',
+'PedestrianArea_QP_32_depth0.csv','RushHour_QP_32_depth0.csv','Sunflower_QP_32_depth0.csv']
+valid_QP_32 = ['Tractor_QP_32_depth0.csv','Wisley_QP_32_depth0.csv']
 
-X = features
-y = classes
+train_QP_37 = ['ChristmasTree_QP_37_depth0.csv','CrowdRun_QP_37_depth0.csv','DucksTakeOff_QP_37_depth0.csv',
+'PedestrianArea_QP_37_depth0.csv','RushHour_QP_37_depth0.csv','Sunflower_QP_37_depth0.csv']
+valid_QP_37 = ['Tractor_QP_37_depth0.csv','Wisley_QP_37_depth0.csv']
 
-X_train, X_test, y_train, y_test, costs_train, costs_test, qp_train, qp_test = train_test_split(X, y, costs, qp, test_size=0.2, random_state=42)
 
-c = 0
-acc = 0
-clfs = []
-for qp_val in [22,27,32,37]:
-    X_train_o, X_test_o, y_train_o, y_test_o, costs_train_o, costs_test_o = bib.separate_qp(qp_val, qp_train, qp_test, X_train, X_test, y_train, y_test, costs_train, costs_test)
-    clf = DecisionTreeClassifier(max_depth=3,random_state=42)
-    clf.fit(X_train_o,y_train_o)
-    y_pred_DT = clf.predict(X_test_o)
-    acc = acc + clf.score(X_test_o,y_test_o)
-    c = c + bib.calculate_cost_of_decisions(y_pred_DT,costs_test_o)
-    clfs.append(clf)
+clf_QP_22 = Classifier()
+clf_QP_22.load_data(train_QP_22,valid_QP_22)
+clf_QP_22.fit_tree()
+print('Acc: '+ str(clf_QP_22.acc))
+print('Cost:' + str(clf_QP_22.total_cost))
+print('Min Cost: ' + str(clf_QP_22.calculate_minimal_cost()))
+print('\n')
 
-r = export_text(clfs[0])
 
-fo = open('tree.txt','w')
-fo.write(r)
-fo.close()
+clf_QP_27 = Classifier()
+clf_QP_27.load_data(train_QP_27,valid_QP_27)
+clf_QP_27.fit_tree()
+print('Acc: '+ str(clf_QP_27.acc))
+print('Cost:' + str(clf_QP_27.total_cost))
+print('Min Cost: ' + str(clf_QP_27.calculate_minimal_cost()))
+print('\n')
 
-# Create DOT data
-class_names = np.array(['0','1'], dtype='<U10')
-dot_data = tree.export_graphviz(clfs[0], out_file=None, class_names=['0','1'])
-# Draw graph
-graph = pydotplus.graph_from_dot_data(dot_data)
+clf_QP_32 = Classifier()
+clf_QP_32.load_data(train_QP_32,valid_QP_32)
+clf_QP_32.fit_tree()
+print('Acc: '+ str(clf_QP_32.acc))
+print('Cost:' + str(clf_QP_32.total_cost))
+print('Min Cost: ' + str(clf_QP_32.calculate_minimal_cost()))
+print('\n')
 
-# Create PNG
-graph.write_png("tree.png")
+clf_QP_37 = Classifier()
+clf_QP_37.load_data(train_QP_37,valid_QP_37)
+clf_QP_37.fit_tree()
+print('Acc: '+ str(clf_QP_37.acc))
+print('Cost:' + str(clf_QP_37.total_cost))
+print('Min Cost: ' + str(clf_QP_37.calculate_minimal_cost()))
+print('\n')
