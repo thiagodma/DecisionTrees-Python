@@ -60,11 +60,17 @@ class Data():
             aux = pd.read_csv('Data/'+valid_seq,sep='|')
             df_valid = pd.concat([df_valid,aux], sort=False)
 
-        self.features_train = df_train.iloc[:,1:11].values
+        f = df_train.iloc[:,1:11].values
+        qp = df_train.iloc[:,23].values
+        qp.shape = (qp.shape[0],1)
+        self.features_train = np.hstack((f,qp))
         self.classes_train = df_train.iloc[:,11].values
         self.costs_train = df_train.iloc[:,12:23].values
 
-        self.features_valid = df_valid.iloc[:,1:11].values
+        f = df_valid.iloc[:,1:11].values
+        qp = df_valid.iloc[:,23].values
+        qp.shape = (qp.shape[0],1)
+        self.features_valid = np.hstack((f,qp))
         self.classes_valid = df_valid.iloc[:,11].values
         self.costs_valid = df_valid.iloc[:,12:23].values
 
@@ -105,22 +111,37 @@ class Data():
 
 
 class Classifier():
-    def __init__(self,data:Data, max_depth:int=5, random_state:int=42,):
+    def __init__(self,data:Data, max_depth:int=5, random_state:int=42, splitter:str='best',
+    min_samples_split:int=2,min_samples_leaf:int=1 ,qp_as_feature:bool=False):
         self.max_depth=max_depth
         self.random_state=random_state
         self.total_cost = 0
         self.acc = 0
         self.data = data
         self.clf = None
+        self.splitter=splitter
+        self.min_samples_leaf = min_samples_leaf
+        self.min_samples_split = min_samples_split
+        self.qp_as_feature = qp_as_feature
 
     def fit_tree(self):
         print('Fitting the decision tree')
-        clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state)
-        clf.fit(self.data.features_train,self.data.classes_train)
-        self.clf = clf
-        y_pred = clf.predict(self.data.features_valid)
-        self.acc = clf.score(self.data.features_valid,self.data.classes_valid)
-        self.total_cost = self.calculate_cost_of_decisions(y_pred)
+        clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state,splitter=self.splitter,
+        min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf)
+
+        if(self.qp_as_feature):
+            clf.fit(self.data.features_train,self.data.classes_train)
+            self.clf = clf
+            y_pred = clf.predict(self.data.features_valid)
+            self.acc = clf.score(self.data.features_valid,self.data.classes_valid)
+            self.total_cost = self.calculate_cost_of_decisions(y_pred)
+        else:
+
+            clf.fit(self.data.features_train[:,:-1],self.data.classes_train)
+            self.clf = clf
+            y_pred = clf.predict(self.data.features_valid[:,:-1])
+            self.acc = clf.score(self.data.features_valid[:,:-1],self.data.classes_valid)
+            self.total_cost = self.calculate_cost_of_decisions(y_pred)
 
     def calculate_cost_of_decisions(self, y_pred):
         cost = 0
@@ -163,6 +184,7 @@ class Classifier():
 
     def _get_Key(self,line,n_tabs_history):
         n_tabs = n_tabs_history.pop(-1)
+        n_tabs = self._get_ntabs(line)
 
         #i have to open keys
         if n_tabs not in n_tabs_history:
@@ -176,7 +198,7 @@ class Classifier():
             return key, n_tabs_history
 
 
-    def write_tree_cpp(self,filename:str):
+    def write_tree_cpp(self,filename:str, depth:int, qp:int):
 
         #Opening the source file
         with open(filename,'r') as fp: lines = fp.read()
@@ -187,6 +209,7 @@ class Classifier():
         fo = open('tree.cpp','w')
         n_tabs_history = []
 
+        fo.write('UInt TTrEngine::xdecide_depth'+str(depth)+'_QP'+str(qp)+'(Double *dFeatures)\n{\n')
         for line in lines:
             n_tabs_history.append(self._get_ntabs(line))
             if self._isIf(line):
@@ -194,13 +217,10 @@ class Classifier():
                 fo.write(self._getIf(line))
                 #writes the key (opens it or closes it)
                 key, n_tabs_history = self._get_Key(line,n_tabs_history)
-                if n_tabs_history == None: import pdb; pdb.set_trace()
                 fo.write(key)
             elif self._isLeaf(line):
                 #writes the leaf
                 fo.write(self._getLeaf(line))
-                #always closes keys after a leaf
-                #fo.write('    '*(n_tabs_history[-1]-1) + '}\n')
             else:
 
                 count = n_tabs_history[-2] - n_tabs_history[-1]
@@ -210,7 +230,6 @@ class Classifier():
 
                 #writes the key (opens it or closes it)
                 key, n_tabs_history = self._get_Key(line,n_tabs_history)
-                if n_tabs_history == None: import pdb; pdb.set_trace()
                 fo.write(key)
                 #writes the else statement
                 fo.write('    '*self._get_ntabs(line) + 'else\n')
@@ -221,4 +240,5 @@ class Classifier():
             fo.write('    '*count + '}\n')
             count-=1
 
+        fo.write('}\n')
         fo.close()
