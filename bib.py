@@ -215,3 +215,10 @@ class Classifier():
                 #writes the else statement
                 fo.write('    '*self._get_ntabs(line) + 'else\n')
                 fo.write('    '*self._get_ntabs(line) + '{\n')
+
+        count = self._get_ntabs(lines[-1])
+        while(count>0):
+            fo.write('    '*count + '}\n')
+            count-=1
+
+        fo.close()
