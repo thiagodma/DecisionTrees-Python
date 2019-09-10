@@ -3,6 +3,7 @@ import numpy as np
 import re
 import os
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree.export import export_text
 
 class Data():
 
@@ -149,7 +150,11 @@ class Classifier():
             if(y_pred[i] == 0):
                 cost = cost + self.data.costs_valid[i,0]
             else:
-                cost = cost + self.data.costs_valid[i,1]
+                #if 'not split' is not available
+                if self.data.costs_valid[i,1] == np.inf:
+                    cost = cost + self.data.costs_valid[i,0]
+                else:
+                    cost = cost + self.data.costs_valid[i,1]
         return cost
 
     def calculate_minimal_cost(self):
@@ -198,15 +203,13 @@ class Classifier():
             return key, n_tabs_history
 
 
-    def write_tree_cpp(self,filename:str, depth:int, qp:int):
+    def write_tree_cpp(self, depth:int, qp:int):
 
-        #Opening the source file
-        with open(filename,'r') as fp: lines = fp.read()
+        lines = export_text(self.clf)
         lines = lines.split('\n')
         lines = lines[:-1]
-        fp.close()
 
-        fo = open('tree.cpp','w')
+        fo = open('tree.cpp','a+')
         n_tabs_history = []
 
         fo.write('UInt TTrEngine::xdecide_depth'+str(depth)+'_QP'+str(qp)+'(Double *dFeatures)\n{\n')
@@ -216,7 +219,10 @@ class Classifier():
                 #writes the 'if' statement
                 fo.write(self._getIf(line))
                 #writes the key (opens it or closes it)
-                key, n_tabs_history = self._get_Key(line,n_tabs_history)
+                #key, n_tabs_history = self._get_Key(line,n_tabs_history)
+                key = '    '*self._get_ntabs(line) + '{\n'
+                #if len(re.findall(r'}',key)) > 0:
+                #    import pdb; pdb.set_trace()
                 fo.write(key)
             elif self._isLeaf(line):
                 #writes the leaf
@@ -229,7 +235,8 @@ class Classifier():
                     count-=1
 
                 #writes the key (opens it or closes it)
-                key, n_tabs_history = self._get_Key(line,n_tabs_history)
+                #key, n_tabs_history = self._get_Key(line,n_tabs_history)
+                key = '    '*self._get_ntabs(line) + '}\n'
                 fo.write(key)
                 #writes the else statement
                 fo.write('    '*self._get_ntabs(line) + 'else\n')
@@ -240,5 +247,5 @@ class Classifier():
             fo.write('    '*count + '}\n')
             count-=1
 
-        fo.write('}\n')
+        fo.write('}\n\n')
         fo.close()
