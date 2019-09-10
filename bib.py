@@ -7,12 +7,12 @@ from sklearn.tree import DecisionTreeClassifier
 class Data():
 
     def __init__(self):
-        self.features_train = pd.DataFrame()
-        self.costs_train = pd.DataFrame()
-        self.classes_train = pd.DataFrame()
-        self.features_valid = pd.DataFrame()
-        self.costs_valid = pd.DataFrame()
-        self.classes_valid = pd.DataFrame()
+        self.features_train = []
+        self.costs_train = []
+        self.classes_train = []
+        self.features_valid = []
+        self.costs_valid = []
+        self.classes_valid = []
 
     def get_data(self):
         '''
@@ -60,43 +60,48 @@ class Data():
             aux = pd.read_csv('Data/'+valid_seq,sep='|')
             df_valid = pd.concat([df_valid,aux], sort=False)
 
-        self.features_train = df_train.iloc[:,1:11]
-        self.classes_train = df_train.iloc[:,11]
-        self.costs_train = df_train.iloc[:,12:23]
+        self.features_train = df_train.iloc[:,1:11].values
+        self.classes_train = df_train.iloc[:,11].values
+        self.costs_train = df_train.iloc[:,12:23].values
 
-        self.features_valid = df_valid.iloc[:,1:11]
-        self.classes_valid = df_valid.iloc[:,11]
-        self.costs_valid = df_valid.iloc[:,12:23]
+        self.features_valid = df_valid.iloc[:,1:11].values
+        self.classes_valid = df_valid.iloc[:,11].values
+        self.costs_valid = df_valid.iloc[:,12:23].values
 
         self.classes_train[self.classes_train!=0] = 1
         self.classes_valid[self.classes_valid!=0] = 1
-        import pdb; pdb.set_trace()
+
         self.simplify_costs()
-        import pdb; pdb.set_trace()
         self.correct_misclassified_samples()
 
     def simplify_costs(self):
 
-        costs0_train = self.costs_train.iloc[:,0].to_frame()
-        costs1_train = self.costs_train.iloc[:,1:].copy()
+        costs0_train = self.costs_train[:,0]
+        costs1_train = self.costs_train[:,1:]
         costs1_train[costs1_train<0] = np.inf
-        costs1_train_aux = costs1_train.min(axis=1)
+        costs1_train_aux = np.amin(costs1_train,axis=1)
 
-        costs0_valid = self.costs_valid.iloc[:,0].to_frame()
-        costs1_valid = self.costs_valid.iloc[:,1:].copy()
+        costs0_valid = self.costs_valid[:,0]
+        costs1_valid = self.costs_valid[:,1:]
         costs1_valid[costs1_valid<0] = np.inf
-        costs1_valid_aux = costs1_valid.min(axis=1)
+        costs1_valid_aux = np.amin(costs1_valid,axis=1)
 
-        self.costs_train = costs0_train.join(costs1_train_aux.to_frame())
-        self.costs_valid = costs0_valid.join(costs1_valid_aux.to_frame())
-
-        self.costs_train.columns=[0,1]
-        self.costs_valid.columns=[0,1]
+        self.costs_train = np.column_stack((costs0_train,costs1_train_aux))
+        self.costs_valid = np.column_stack((costs0_valid,costs1_valid_aux))
 
     def correct_misclassified_samples(self):
-        self.classes_train = self.costs_train.idxmin(axis=1).to_frame()
-        self.classes_valid = self.costs_valid.idxmin(axis=1).to_frame()
-        import pdb; pdb.set_trace()
+
+        for i in range(self.costs_train.shape[0]):
+            if self.costs_train[i][0] <= self.costs_train[i][1]:
+                self.classes_train[i] = 0
+            else:
+                self.classes_train[i] = 1
+
+        for i in range(self.costs_valid.shape[0]):
+            if self.costs_valid[i][0] <= self.costs_valid[i][1]:
+                self.classes_valid[i] = 0
+            else:
+                self.classes_valid[i] = 1
 
 
 class Classifier():
@@ -106,11 +111,13 @@ class Classifier():
         self.total_cost = 0
         self.acc = 0
         self.data = data
+        self.clf = None
 
     def fit_tree(self):
         print('Fitting the decision tree')
         clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state)
         clf.fit(self.data.features_train,self.data.classes_train)
+        self.clf = clf
         y_pred = clf.predict(self.data.features_valid)
         self.acc = clf.score(self.data.features_valid,self.data.classes_valid)
         self.total_cost = self.calculate_cost_of_decisions(y_pred)
@@ -119,16 +126,92 @@ class Classifier():
         cost = 0
         for i in range(len(y_pred)):
             if(y_pred[i] == 0):
-                cost = cost + self.data.costs_valid.iloc[i,0]
+                cost = cost + self.data.costs_valid[i,0]
             else:
-                cost = cost + self.data.costs_valid.iloc[i,1]
+                cost = cost + self.data.costs_valid[i,1]
         return cost
 
     def calculate_minimal_cost(self):
         cost = 0
         for i in range(len(self.data.classes_valid)):
-            if(self.data.classes_valid.iloc[i] == 0):
-                cost = cost + self.data.costs_valid.iloc[i,0]
+            if(self.data.classes_valid[i] == 0):
+                cost = cost + self.data.costs_valid[i,0]
             else:
-                cost = cost + self.data.costs_valid.iloc[i,1]
+                cost = cost + self.data.costs_valid[i,1]
         return cost
+
+    def _get_ntabs(self,line):
+        return len(re.findall(r'\|   ',line))
+
+    def _isIf(self,line):
+        return len(re.findall(r'<=',line)) != 0
+
+    def _isLeaf(self,line):
+        return len(re.findall('class',line)) != 0
+
+    def _getIf(self,line):
+        n_tabs = self._get_ntabs(line)
+        feature = re.findall(r'_\d',line)[0][1]
+        val = re.findall(r'\d+.\d+',line)[0]
+        return '    '*n_tabs + 'if(dFeatures[' + feature + '] <= ' + val + ')\n'
+
+    def _getClass(self,line):
+        return re.findall(r'class: (\d).\d',line)[0]
+
+    def _getLeaf(self,line):
+        return '    '*self._get_ntabs(line) + 'return ' + self._getClass(line) + ';\n'
+
+    def _get_Key(self,line,n_tabs_history):
+        n_tabs = n_tabs_history.pop(-1)
+
+        #i have to open keys
+        if n_tabs not in n_tabs_history:
+            key = '    '*n_tabs + '{\n'
+            n_tabs_history.append(n_tabs)
+            return key,n_tabs_history
+        #i have to close keys
+        else:
+            key = '    '*n_tabs + '}\n'
+            n_tabs_history.remove(n_tabs)
+            return key, n_tabs_history
+
+
+    def write_tree_cpp(self,filename:str):
+
+        #Opening the source file
+        with open(filename,'r') as fp: lines = fp.read()
+        lines = lines.split('\n')
+        lines = lines[:-1]
+        fp.close()
+
+        fo = open('tree.cpp','w')
+        n_tabs_history = []
+
+        for line in lines:
+            n_tabs_history.append(self._get_ntabs(line))
+            if self._isIf(line):
+                #writes the 'if' statement
+                fo.write(self._getIf(line))
+                #writes the key (opens it or closes it)
+                key, n_tabs_history = self._get_Key(line,n_tabs_history)
+                if n_tabs_history == None: import pdb; pdb.set_trace()
+                fo.write(key)
+            elif self._isLeaf(line):
+                #writes the leaf
+                fo.write(self._getLeaf(line))
+                #always closes keys after a leaf
+                #fo.write('    '*(n_tabs_history[-1]-1) + '}\n')
+            else:
+
+                count = n_tabs_history[-2] - n_tabs_history[-1]
+                while(count>1):
+                    fo.write('    '*(n_tabs_history[-1]+count-1) + '}\n')
+                    count-=1
+
+                #writes the key (opens it or closes it)
+                key, n_tabs_history = self._get_Key(line,n_tabs_history)
+                if n_tabs_history == None: import pdb; pdb.set_trace()
+                fo.write(key)
+                #writes the else statement
+                fo.write('    '*self._get_ntabs(line) + 'else\n')
+                fo.write('    '*self._get_ntabs(line) + '{\n')
