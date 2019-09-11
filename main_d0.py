@@ -17,9 +17,12 @@ train_QP_37 = ['ChristmasTree_QP_37_depth0.csv','CrowdRun_QP_37_depth0.csv','Duc
 valid_QP_37 = ['Tractor_QP_37_depth0.csv','Wisley_QP_37_depth0.csv']
 
 
+#checks if there is a 'tree.cpp' file. If so, deletes it
+if os.path.isfile('tree.cpp'): os.remove('tree.cpp')
+
 data_QP_22 = Data()
 data_QP_22.load_data(train_QP_22,valid_QP_22)
-clf_QP_22 = Classifier(data_QP_22,max_depth=6,qp_as_feature=False)
+clf_QP_22 = Classifier(data_QP_22,max_depth=6)
 clf_QP_22.fit_tree()
 print('Acc: '+ str(clf_QP_22.acc))
 print('Cost:' + str(clf_QP_22.total_cost))
