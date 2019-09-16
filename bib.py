@@ -203,7 +203,7 @@ class Classifier():
             return key, n_tabs_history
 
 
-    def write_tree_cpp(self, depth:int, qp:int):
+    def write_tree_cpp(self, depth:int, qp:int,version:int):
 
         lines = export_text(self.clf)
         lines = lines.split('\n')
@@ -212,7 +212,7 @@ class Classifier():
         fo = open('tree.cpp','a+')
         n_tabs_history = []
 
-        fo.write('UInt TTrEngine::xdecide_depth'+str(depth)+'_QP'+str(qp)+'(Double *dFeatures)\n{\n')
+        fo.write('UInt TTrEngine::xdecide_depth'+str(depth)+'_QP'+str(qp)+'_v'+str(version)+'(Double *dFeatures)\n{\n')
         for line in lines:
             n_tabs_history.append(self._get_ntabs(line))
             if self._isIf(line):
