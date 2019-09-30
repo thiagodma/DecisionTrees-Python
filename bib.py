@@ -205,7 +205,7 @@ class Classifier():
 
     def write_tree_cpp(self, depth:int, qp:int,version:int):
 
-        lines = export_text(self.clf)
+        lines = export_text(self.clf,max_depth=self.max_depth)
         lines = lines.split('\n')
         lines = lines[:-1]
 
