@@ -202,7 +202,6 @@ class Classifier():
             n_tabs_history.remove(n_tabs)
             return key, n_tabs_history
 
-
     def write_tree_cpp(self, depth:int, qp:int,version:int):
 
         lines = export_text(self.clf,max_depth=self.max_depth)
