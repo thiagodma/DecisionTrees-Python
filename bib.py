@@ -132,17 +132,15 @@ class Classifier():
 
         if(self.qp_as_feature):
             clf.fit(self.data.features_train,self.data.classes_train)
-            self.clf = clf
-            y_pred = clf.predict(self.data.features_valid)
-            self.acc = clf.score(self.data.features_valid,self.data.classes_valid)
-            self.total_cost = self.calculate_cost_of_decisions(y_pred)
         else:
-
             clf.fit(self.data.features_train[:,:-1],self.data.classes_train)
-            self.clf = clf
-            y_pred = clf.predict(self.data.features_valid[:,:-1])
-            self.acc = clf.score(self.data.features_valid[:,:-1],self.data.classes_valid)
-            self.total_cost = self.calculate_cost_of_decisions(y_pred)
+        self.clf = clf
+
+    def get_stats(self):
+        clf=self.clf
+        y_pred = clf.predict(self.data.features_valid[:,:-1])
+        self.acc = clf.score(self.data.features_valid[:,:-1],self.data.classes_valid)
+        self.total_cost = self.calculate_cost_of_decisions(y_pred)
 
     def calculate_cost_of_decisions(self, y_pred):
         cost = 0
@@ -165,86 +163,3 @@ class Classifier():
             else:
                 cost = cost + self.data.costs_valid[i,1]
         return cost
-
-    def _get_ntabs(self,line):
-        return len(re.findall(r'\|   ',line))
-
-    def _isIf(self,line):
-        return len(re.findall(r'<=',line)) != 0
-
-    def _isLeaf(self,line):
-        return len(re.findall('class',line)) != 0
-
-    def _getIf(self,line):
-        n_tabs = self._get_ntabs(line)
-        feature = re.findall(r'_\d',line)[0][1]
-        val = re.findall(r'\d+.\d+',line)[0]
-        return '    '*n_tabs + 'if(dFeatures[' + feature + '] <= ' + val + ')\n'
-
-    def _getClass(self,line):
-        return re.findall(r'class: (\d).\d',line)[0]
-
-    def _getLeaf(self,line):
-        return '    '*self._get_ntabs(line) + 'return ' + self._getClass(line) + ';\n'
-
-    def _get_Key(self,line,n_tabs_history):
-        n_tabs = n_tabs_history.pop(-1)
-        n_tabs = self._get_ntabs(line)
-
-        #i have to open keys
-        if n_tabs not in n_tabs_history:
-            key = '    '*n_tabs + '{\n'
-            n_tabs_history.append(n_tabs)
-            return key,n_tabs_history
-        #i have to close keys
-        else:
-            key = '    '*n_tabs + '}\n'
-            n_tabs_history.remove(n_tabs)
-            return key, n_tabs_history
-
-    def write_tree_cpp(self, depth:int, qp:int,version:int):
-
-        lines = export_text(self.clf,max_depth=self.max_depth)
-        lines = lines.split('\n')
-        lines = lines[:-1]
-
-        fo = open('tree.cpp','a+')
-        n_tabs_history = []
-
-        fo.write('UInt TTrEngine::xdecide_depth'+str(depth)+'_QP'+str(qp)+'_v'+str(version)+'(Double *dFeatures)\n{\n')
-        for line in lines:
-            n_tabs_history.append(self._get_ntabs(line))
-            if self._isIf(line):
-                #writes the 'if' statement
-                fo.write(self._getIf(line))
-                #writes the key (opens it or closes it)
-                #key, n_tabs_history = self._get_Key(line,n_tabs_history)
-                key = '    '*self._get_ntabs(line) + '{\n'
-                #if len(re.findall(r'}',key)) > 0:
-                #    import pdb; pdb.set_trace()
-                fo.write(key)
-            elif self._isLeaf(line):
-                #writes the leaf
-                fo.write(self._getLeaf(line))
-            else:
-
-                count = n_tabs_history[-2] - n_tabs_history[-1]
-                while(count>1):
-                    fo.write('    '*(n_tabs_history[-1]+count-1) + '}\n')
-                    count-=1
-
-                #writes the key (opens it or closes it)
-                #key, n_tabs_history = self._get_Key(line,n_tabs_history)
-                key = '    '*self._get_ntabs(line) + '}\n'
-                fo.write(key)
-                #writes the else statement
-                fo.write('    '*self._get_ntabs(line) + 'else\n')
-                fo.write('    '*self._get_ntabs(line) + '{\n')
-
-        count = self._get_ntabs(lines[-1])
-        while(count>0):
-            fo.write('    '*count + '}\n')
-            count-=1
-
-        fo.write('}\n\n')
-        fo.close()
