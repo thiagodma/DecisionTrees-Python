@@ -17,7 +17,6 @@ costs =[]
 for max_depth in max_depths:
     clf_QP_22 = Classifier(data_QP_22,max_depth=max_depth)
     clf_QP_22.fit_tree()
-    clf_QP_22.hack_tree()
     clf_QP_22.get_stats()
     print('Acc: '+ str(clf_QP_22.acc))
     print('Cost:' + str(clf_QP_22.total_cost))
