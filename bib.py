@@ -4,6 +4,7 @@ import re
 import os
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree.export import export_text
+from sklearn.tree._tree import TREE_LEAF
 
 class Data():
 
@@ -113,7 +114,7 @@ class Data():
 
 class Classifier():
     def __init__(self,data:Data, max_depth:int=5, random_state:int=42, splitter:str='best',
-    min_samples_split:int=2,min_samples_leaf:int=1 ,qp_as_feature:bool=False):
+    min_samples_split:int=2,min_samples_leaf:int=1 ,qp_as_feature:bool=False, criterion:str='gini'):
         self.max_depth=max_depth
         self.random_state=random_state
         self.total_cost = 0
@@ -124,11 +125,12 @@ class Classifier():
         self.min_samples_leaf = min_samples_leaf
         self.min_samples_split = min_samples_split
         self.qp_as_feature = qp_as_feature
+        self.criterion = criterion
 
     def fit_tree(self):
         print('Fitting the decision tree')
         clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state,splitter=self.splitter,
-        min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf)
+        min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf,criterion=self.criterion)
 
         if(self.qp_as_feature):
             clf.fit(self.data.features_train,self.data.classes_train)
@@ -163,6 +165,35 @@ class Classifier():
             else:
                 cost = cost + self.data.costs_valid[i,1]
         return cost
+
+    def is_leaf(self, inner_tree, index):
+        # Check whether node is leaf node
+        return (inner_tree.children_left[index] == TREE_LEAF and
+                inner_tree.children_right[index] == TREE_LEAF)
+
+    def prune_index(self, inner_tree, decisions, index=0):
+        # Start pruning from the bottom - if we start from the top, we might miss
+        # nodes that become leaves during pruning.
+        # Do not use this directly - use prune_duplicate_leaves instead.
+        if not self.is_leaf(inner_tree, inner_tree.children_left[index]):
+            self.prune_index(inner_tree, decisions, inner_tree.children_left[index])
+        if not self.is_leaf(inner_tree, inner_tree.children_right[index]):
+            self.prune_index(inner_tree, decisions, inner_tree.children_right[index])
+
+        # Prune children if both children are leaves now and make the same decision:
+        if (self.is_leaf(inner_tree, inner_tree.children_left[index]) and
+            self.is_leaf(inner_tree, inner_tree.children_right[index]) and
+            (decisions[index] == decisions[inner_tree.children_left[index]]) and
+            (decisions[index] == decisions[inner_tree.children_right[index]])):
+            # turn node into a leaf by "unlinking" its children
+            inner_tree.children_left[index] = TREE_LEAF
+            inner_tree.children_right[index] = TREE_LEAF
+            ##print("Pruned {}".format(index))
+
+    def prune_duplicate_leaves(self, mdl):
+        # Remove leaves if both
+        decisions = mdl.tree_.value.argmax(axis=2).flatten().tolist() # Decision for each node
+        self.prune_index(mdl.tree_, decisions)
 
 class ExportTree():
     def __init__(self,classifier:Classifier):
@@ -206,7 +237,7 @@ class ExportTree():
 
     def write_tree_cpp(self, depth:int, qp:int,version:int):
 
-        lines = export_text(self.clf,max_depth=self.clf.max_depth)
+        lines = export_text(self.clf,max_depth=30)
         lines = lines.split('\n')
         lines = lines[:-1]
 
