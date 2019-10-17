@@ -1,5 +1,6 @@
 from bib import *
 
+'''
 train_QP_22 = ['ChristmasTree_QP_22_depth0.csv','CrowdRun_QP_22_depth0.csv','DucksTakeOff_QP_22_depth0.csv',
 'PedestrianArea_QP_22_depth0.csv','RushHour_QP_22_depth0.csv','Sunflower_QP_22_depth0.csv']
 valid_QP_22 = ['Tractor_QP_22_depth0.csv','Wisley_QP_22_depth0.csv']
@@ -15,15 +16,26 @@ valid_QP_32 = ['Tractor_QP_32_depth0.csv','Wisley_QP_32_depth0.csv']
 train_QP_37 = ['ChristmasTree_QP_37_depth0.csv','CrowdRun_QP_37_depth0.csv','DucksTakeOff_QP_37_depth0.csv',
 'PedestrianArea_QP_37_depth0.csv','RushHour_QP_37_depth0.csv','Sunflower_QP_37_depth0.csv']
 valid_QP_37 = ['Tractor_QP_37_depth0.csv','Wisley_QP_37_depth0.csv']
+'''
 
+#Later I'll do a 10-fold cross validation so I don't need a explicit validation set
+train_QP_22 = ['ChristmasTree_QP_22_depth0.csv','CrowdRun_QP_22_depth0.csv','DucksTakeOff_QP_22_depth0.csv',
+'PedestrianArea_QP_22_depth0.csv','RushHour_QP_22_depth0.csv','Sunflower_QP_22_depth0.csv','Tractor_QP_22_depth0.csv','Wisley_QP_22_depth0.csv']
+train_QP_27 = ['ChristmasTree_QP_27_depth0.csv','CrowdRun_QP_27_depth0.csv','DucksTakeOff_QP_27_depth0.csv',
+'PedestrianArea_QP_27_depth0.csv','RushHour_QP_27_depth0.csv','Sunflower_QP_27_depth0.csv','Tractor_QP_27_depth0.csv','Wisley_QP_27_depth0.csv']
+train_QP_32 = ['ChristmasTree_QP_32_depth0.csv','CrowdRun_QP_32_depth0.csv','DucksTakeOff_QP_32_depth0.csv',
+'PedestrianArea_QP_32_depth0.csv','RushHour_QP_32_depth0.csv','Sunflower_QP_32_depth0.csv','Tractor_QP_32_depth0.csv','Wisley_QP_32_depth0.csv']
+train_QP_37 = ['ChristmasTree_QP_37_depth0.csv','CrowdRun_QP_37_depth0.csv','DucksTakeOff_QP_37_depth0.csv',
+'PedestrianArea_QP_37_depth0.csv','RushHour_QP_37_depth0.csv','Sunflower_QP_37_depth0.csv','Tractor_QP_37_depth0.csv','Wisley_QP_37_depth0.csv']
 
 #checks if there is a 'tree.cpp' file. If so, deletes it
 if os.path.isfile('tree.cpp'): os.remove('tree.cpp')
 
 data_QP_22 = Data()
-data_QP_22.load_data(train_QP_22,valid_QP_22)
-clf_QP_22 = Classifier(data_QP_22,max_depth=6)
+data_QP_22.load_data(train_QP_22,train_QP_22)
+clf_QP_22 = Classifier(data_QP_22,max_depth=None,splitter='best',min_samples_leaf=59,criterion='gini')
 clf_QP_22.fit_tree()
+clf_QP_22.prune_duplicate_leaves(clf_QP_22.clf)
 print('Acc: '+ str(clf_QP_22.acc))
 print('Cost:' + str(clf_QP_22.total_cost))
 print('Min Cost: ' + str(clf_QP_22.calculate_minimal_cost()))
@@ -32,9 +44,10 @@ clf_QP_22.write_tree_cpp(0,22,3)
 print('\n')
 
 data_QP_27 = Data()
-data_QP_27.load_data(train_QP_27,valid_QP_27)
-clf_QP_27 = Classifier(data_QP_27,max_depth=4)
+data_QP_27.load_data(train_QP_27,train_QP_27)
+clf_QP_27 = Classifier(data_QP_27, max_depth=None,splitter='best',min_samples_leaf=166,criterion='gini')
 clf_QP_27.fit_tree()
+clf_QP_27.prune_duplicate_leaves(clf_QP_27.clf)
 print('Acc: '+ str(clf_QP_27.acc))
 print('Cost:' + str(clf_QP_27.total_cost))
 print('Min Cost: ' + str(clf_QP_27.calculate_minimal_cost()))
@@ -43,9 +56,10 @@ clf_QP_27.write_tree_cpp(0,27,3)
 print('\n')
 
 data_QP_32 = Data()
-data_QP_32.load_data(train_QP_32,valid_QP_32)
-clf_QP_32 = Classifier(data_QP_32,max_depth=3)
+data_QP_32.load_data(train_QP_32,train_QP_32)
+clf_QP_32 = Classifier(data_QP_32, max_depth=None,splitter='best',min_samples_leaf=3593,criterion='gini')
 clf_QP_32.fit_tree()
+clf_QP_32.prune_duplicate_leaves(clf_QP_32.clf)
 print('Acc: '+ str(clf_QP_32.acc))
 print('Cost:' + str(clf_QP_32.total_cost))
 print('Min Cost: ' + str(clf_QP_32.calculate_minimal_cost()))
@@ -54,9 +68,10 @@ clf_QP_32.write_tree_cpp(0,32,3)
 print('\n')
 
 data_QP_37 = Data()
-data_QP_37.load_data(train_QP_37,valid_QP_37)
-clf_QP_37 = Classifier(data_QP_37,max_depth=8)
+data_QP_37.load_data(train_QP_37,train_QP_37)
+clf_QP_37 = Classifier(data_QP_37, max_depth=None,splitter='best',min_samples_leaf=166,criterion='entropy')
 clf_QP_37.fit_tree()
+clf_QP_37.prune_duplicate_leaves(clf_QP_37.clf)
 print('Acc: '+ str(clf_QP_37.acc))
 print('Cost:' + str(clf_QP_37.total_cost))
 print('Min Cost: ' + str(clf_QP_37.calculate_minimal_cost()))
