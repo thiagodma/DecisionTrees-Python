@@ -92,7 +92,7 @@ best_clfs = []
 
 for acc_qp, clf_qp in zip(accs,clfs):
     accs_mean = np.mean(acc_qp,axis=0)
-    accs_std = np.std(acc_qp,axis=1)
+    accs_std = np.std(acc_qp,axis=0)
     scores = accs_mean/accs_std
     idx = np.argmax(scores)
     best_clfs.append(clf_qp[idx])
