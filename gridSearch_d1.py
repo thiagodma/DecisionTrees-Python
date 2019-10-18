@@ -97,4 +97,4 @@ for acc_qp, clf_qp in zip(accs,clfs):
     idx = np.argmax(scores)
     best_clfs.append(clf_qp[idx])
 
-with open("best_clfs_d1.pkl", "wb") as fp: pickle.dump(fp)
+with open("best_clfs_d1.pkl", "wb") as fp: pickle.dump(best_clfs,fp)
