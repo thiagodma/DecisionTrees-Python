@@ -33,7 +33,7 @@ if os.path.isfile('tree.cpp'): os.remove('tree.cpp')
 
 data_QP_22 = Data()
 data_QP_22.load_data(train_QP_22,train_QP_22)
-clf_QP_22 = Classifier(data_QP_22,max_depth=None,splitter='best',min_samples_leaf=59,criterion='gini')
+clf_QP_22 = Classifier(data_QP_22,max_depth=None,splitter='best',min_samples_leaf=3593,criterion='gini')
 clf_QP_22.fit_tree()
 clf_QP_22.prune_duplicate_leaves(clf_QP_22.clf)
 clf_QP_22.get_stats()
