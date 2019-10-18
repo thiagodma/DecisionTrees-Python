@@ -16,6 +16,7 @@ class Data():
         self.costs_valid = []
         self.classes_valid = []
 
+
     def get_data(self):
         '''
         Imports training data into a folder named 'Data'.
@@ -45,7 +46,7 @@ class Data():
                 df0.to_csv('Data/'+seq+'_'+qp+'_depth0.csv',sep='|',encoding='utf-8',index=False, )
                 df1.to_csv('Data/'+seq+'_'+qp+'_depth1.csv',sep='|',encoding='utf-8',index=False)
 
-    def load_data(self, training_seqs, valid_seqs):
+    def load_data(self, training_seqs:list, valid_seqs:list, balanced:bool=True):
         '''
         Loads the data in the class
         '''
@@ -81,6 +82,28 @@ class Data():
 
         self.simplify_costs()
         self.correct_misclassified_samples()
+
+        if balanced: self.balance_data()
+
+    def balance_data(self):
+
+        n1 = np.sum(self.classes_train)
+        n0 = len(self.classes_train) - n1
+
+        if n0 > n1:
+            idxs0 = np.where(self.classes_train == 0)[0]
+            idxs1 = np.where(self.classes_train == 1)[0]
+            #import pdb; pdb.set_trace()
+            idxs0_keep = np.random.choice(idxs0,size=n1.astype('int'),replace=False)
+            self.features_train = np.vstack((self.features_train[idxs0_keep,:],self.features_train[idxs1,:]))
+            self.classes_train = np.hstack((self.classes_train[idxs0_keep],self.classes_train[idxs1]))
+        if n1 > n0:
+            idxs0 = np.where(self.classes_train == 0)[0]
+            idxs1 = np.where(self.classes_train == 1)[0]
+            idxs1_keep = np.random.choice(idxs1,size=n0.astype('int'),replace=False)
+            self.features_train = np.vstack((self.features_train[idxs0,:],self.features_train[idxs1_keep,:]))
+            self.classes_train = np.hstack((self.classes_train[idxs0],self.classes_train[idxs1_keep]))
+        
 
     def simplify_costs(self):
 
