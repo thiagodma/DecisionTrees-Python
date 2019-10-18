@@ -237,7 +237,7 @@ class ExportTree():
 
     def write_tree_cpp(self, depth:int, qp:int,version:int):
 
-        lines = export_text(self.clf,max_depth=30)
+        lines = export_text(self.clf,max_depth=1000)
         lines = lines.split('\n')
         lines = lines[:-1]
 
