@@ -20,8 +20,6 @@ accs = []
 clfs = []
 for item in train_d0:
 
-    accs_aux = []
-    clfs_aux = []
     accs_mat = np.zeros((8,40))
     for i in range(8):
 
@@ -60,9 +58,9 @@ for item in train_d0:
         param_grid = [
             {'classifier' : [DecisionTreeClassifier()],
             'classifier__random_state' : [42],
-            'classifier__criterion' : ['gini','entropy'],
-            'classifier__splitter' : ['best','random'],
-            'classifier__min_samples_leaf' : np.logspace(0,4,num=10,dtype=np.int64)
+            'classifier__criterion' : ['gini'],
+            'classifier__splitter' : ['best'],
+            'classifier__min_samples_leaf' : np.linspace(2,10000,num=100,dtype=np.int64)
             }]
 
         # Create grid search object
