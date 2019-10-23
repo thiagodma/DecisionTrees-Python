@@ -86,7 +86,7 @@ class Data():
         if balanced: self.balance_data()
 
     def balance_data(self):
-
+        '''
         n1 = np.sum(self.classes_train)
         n0 = len(self.classes_train) - n1
 
@@ -103,6 +103,10 @@ class Data():
             idxs1_keep = np.random.choice(idxs1,size=n0.astype('int'),replace=False)
             self.features_train = np.vstack((self.features_train[idxs0,:],self.features_train[idxs1_keep,:]))
             self.classes_train = np.hstack((self.classes_train[idxs0],self.classes_train[idxs1_keep]))
+        '''
+
+        n1 = np.sum(self.classes_valid)
+        n0 = len(self.classes_valid) - n1
 
         if n0 > n1:
             idxs0 = np.where(self.classes_valid == 0)[0]
