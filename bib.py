@@ -103,7 +103,20 @@ class Data():
             idxs1_keep = np.random.choice(idxs1,size=n0.astype('int'),replace=False)
             self.features_train = np.vstack((self.features_train[idxs0,:],self.features_train[idxs1_keep,:]))
             self.classes_train = np.hstack((self.classes_train[idxs0],self.classes_train[idxs1_keep]))
-        
+
+        if n0 > n1:
+            idxs0 = np.where(self.classes_valid == 0)[0]
+            idxs1 = np.where(self.classes_valid == 1)[0]
+            #import pdb; pdb.set_trace()
+            idxs0_keep = np.random.choice(idxs0,size=n1.astype('int'),replace=False)
+            self.features_valid = np.vstack((self.features_valid[idxs0_keep,:],self.features_valid[idxs1,:]))
+            self.classes_valid = np.hstack((self.classes_valid[idxs0_keep],self.classes_valid[idxs1]))
+        if n1 > n0:
+            idxs0 = np.where(self.classes_valid == 0)[0]
+            idxs1 = np.where(self.classes_valid == 1)[0]
+            idxs1_keep = np.random.choice(idxs1,size=n0.astype('int'),replace=False)
+            self.features_valid = np.vstack((self.features_valid[idxs0,:],self.features_valid[idxs1_keep,:]))
+            self.classes_valid = np.hstack((self.classes_valid[idxs0],self.classes_valid[idxs1_keep]))
 
     def simplify_costs(self):
 
