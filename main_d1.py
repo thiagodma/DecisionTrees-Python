@@ -1,21 +1,21 @@
 from bib import *
 
 
-train_QP_22 = ['ChristmasTree_QP_22_depth0.csv','CrowdRun_QP_22_depth0.csv','DucksTakeOff_QP_22_depth0.csv',
-'PedestrianArea_QP_22_depth0.csv','RushHour_QP_22_depth0.csv','Sunflower_QP_22_depth0.csv']
-valid_QP_22 = ['Tractor_QP_22_depth0.csv','Wisley_QP_22_depth0.csv']
+train_QP_22 = ['ChristmasTree_QP_22_depth1.csv','CrowdRun_QP_22_depth1.csv','DucksTakeOff_QP_22_depth1.csv',
+'PedestrianArea_QP_22_depth1.csv','RushHour_QP_22_depth1.csv','Sunflower_QP_22_depth1.csv']
+valid_QP_22 = ['Tractor_QP_22_depth1.csv','Wisley_QP_22_depth1.csv']
 
-train_QP_27 = ['ChristmasTree_QP_27_depth0.csv','CrowdRun_QP_27_depth0.csv','DucksTakeOff_QP_27_depth0.csv',
-'PedestrianArea_QP_27_depth0.csv','RushHour_QP_27_depth0.csv','Sunflower_QP_27_depth0.csv']
-valid_QP_27 = ['Tractor_QP_27_depth0.csv','Wisley_QP_27_depth0.csv']
+train_QP_27 = ['ChristmasTree_QP_27_depth1.csv','CrowdRun_QP_27_depth1.csv','DucksTakeOff_QP_27_depth1.csv',
+'PedestrianArea_QP_27_depth1.csv','RushHour_QP_27_depth1.csv','Sunflower_QP_27_depth1.csv']
+valid_QP_27 = ['Tractor_QP_27_depth1.csv','Wisley_QP_27_depth1.csv']
 
-train_QP_32 = ['ChristmasTree_QP_32_depth0.csv','CrowdRun_QP_32_depth0.csv','DucksTakeOff_QP_32_depth0.csv',
-'PedestrianArea_QP_32_depth0.csv','RushHour_QP_32_depth0.csv','Sunflower_QP_32_depth0.csv']
-valid_QP_32 = ['Tractor_QP_32_depth0.csv','Wisley_QP_32_depth0.csv']
+train_QP_32 = ['ChristmasTree_QP_32_depth1.csv','CrowdRun_QP_32_depth1.csv','DucksTakeOff_QP_32_depth1.csv',
+'PedestrianArea_QP_32_depth1.csv','RushHour_QP_32_depth1.csv','Sunflower_QP_32_depth1.csv']
+valid_QP_32 = ['Tractor_QP_32_depth1.csv','Wisley_QP_32_depth1.csv']
 
-train_QP_37 = ['ChristmasTree_QP_37_depth0.csv','CrowdRun_QP_37_depth0.csv','DucksTakeOff_QP_37_depth0.csv',
-'PedestrianArea_QP_37_depth0.csv','RushHour_QP_37_depth0.csv','Sunflower_QP_37_depth0.csv']
-valid_QP_37 = ['Tractor_QP_37_depth0.csv','Wisley_QP_37_depth0.csv']
+train_QP_37 = ['ChristmasTree_QP_37_depth1.csv','CrowdRun_QP_37_depth1.csv','DucksTakeOff_QP_37_depth1.csv',
+'PedestrianArea_QP_37_depth1.csv','RushHour_QP_37_depth1.csv','Sunflower_QP_37_depth1.csv']
+valid_QP_37 = ['Tractor_QP_37_depth1.csv','Wisley_QP_37_depth1.csv']
 
 '''
 #Later I'll do a 10-fold cross validation so I don't need a explicit validation set
@@ -31,7 +31,7 @@ train_QP_37 = ['ChristmasTree_QP_37_depth1.csv','CrowdRun_QP_37_depth1.csv','Duc
 
 data_QP_22 = Data()
 data_QP_22.load_data(train_QP_22,valid_QP_22)
-clf_QP_22 = Classifier(data_QP_22,max_depth=None,splitter='best',min_samples_leaf=1516,criterion='gini')
+clf_QP_22 = Classifier(data_QP_22,max_depth=None,splitter='best',min_samples_leaf=4874,criterion='gini')
 clf_QP_22.fit_tree()
 clf_QP_22.prune_duplicate_leaves(clf_QP_22.clf)
 clf_QP_22.get_stats()
@@ -45,7 +45,7 @@ print('\n')
 
 data_QP_27 = Data()
 data_QP_27.load_data(train_QP_27,valid_QP_27)
-clf_QP_27 = Classifier(data_QP_27, max_depth=None,splitter='best',min_samples_leaf=1415,criterion='gini')
+clf_QP_27 = Classifier(data_QP_27, max_depth=None,splitter='best',min_samples_leaf=5175,criterion='gini')
 clf_QP_27.fit_tree()
 clf_QP_27.prune_duplicate_leaves(clf_QP_27.clf)
 clf_QP_27.get_stats()
@@ -59,7 +59,7 @@ print('\n')
 
 data_QP_32 = Data()
 data_QP_32.load_data(train_QP_32,valid_QP_32)
-clf_QP_32 = Classifier(data_QP_32, max_depth=None,splitter='best',min_samples_leaf=6263,criterion='gini')
+clf_QP_32 = Classifier(data_QP_32, max_depth=None,splitter='best',min_samples_leaf=3165,criterion='gini')
 clf_QP_32.fit_tree()
 clf_QP_32.prune_duplicate_leaves(clf_QP_32.clf)
 clf_QP_32.get_stats()
@@ -73,7 +73,7 @@ print('\n')
 
 data_QP_37 = Data()
 data_QP_37.load_data(train_QP_37,valid_QP_37)
-clf_QP_37 = Classifier(data_QP_37, max_depth=None,splitter='best',min_samples_leaf=9091,criterion='gini')
+clf_QP_37 = Classifier(data_QP_37, max_depth=None,splitter='best',min_samples_leaf=1959,criterion='gini')
 clf_QP_37.fit_tree()
 clf_QP_37.prune_duplicate_leaves(clf_QP_37.clf)
 clf_QP_37.get_stats()
