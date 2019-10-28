@@ -158,7 +158,7 @@ class Data():
 
 class Classifier():
     def __init__(self,data:Data, max_depth:int=5, random_state:int=42, splitter:str='best',
-    min_samples_split:int=2,min_samples_leaf:int=1 ,qp_as_feature:bool=False, criterion:str='gini'):
+    min_samples_split:int=2,min_samples_leaf:int=1 ,qp_as_feature:bool=False, criterion:str='gini',class_weight=None):
         self.max_depth=max_depth
         self.random_state=random_state
         self.total_cost = 0
@@ -170,11 +170,12 @@ class Classifier():
         self.min_samples_split = min_samples_split
         self.qp_as_feature = qp_as_feature
         self.criterion = criterion
+        self.class_weight = class_weight
 
     def fit_tree(self):
         print('Fitting the decision tree')
         clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state,splitter=self.splitter,
-        min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf,criterion=self.criterion)
+        min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf,criterion=self.criterion,class_weight = self.class_weight)
 
         if(self.qp_as_feature):
             clf.fit(self.data.features_train,self.data.classes_train)
