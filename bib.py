@@ -46,7 +46,7 @@ class Data():
                 df0.to_csv('Data/'+seq+'_'+qp+'_depth0.csv',sep='|',encoding='utf-8',index=False, )
                 df1.to_csv('Data/'+seq+'_'+qp+'_depth1.csv',sep='|',encoding='utf-8',index=False)
 
-    def load_data(self, training_seqs:list, valid_seqs:list, balanced:bool=True):
+    def load_data(self, training_seqs:list, valid_seqs:list, ft_qp:int, balanced:bool=True):
         '''
         Loads the data in the class
         '''
@@ -63,19 +63,23 @@ class Data():
             aux = pd.read_csv('Data/'+valid_seq,sep='|')
             df_valid = pd.concat([df_valid,aux], sort=False)
 
-        f = df_train.iloc[:,1:11].values
         qp = df_train.iloc[:,23].values
+        idx = np.where(qp==ft_qp)[0]
+        qp = df_train.iloc[idx,23].values
         qp.shape = (qp.shape[0],1)
+        f = df_train.iloc[idx,1:11].values
         self.features_train = np.hstack((f,qp))
-        self.classes_train = df_train.iloc[:,11].values
-        self.costs_train = df_train.iloc[:,12:23].values
+        self.classes_train = df_train.iloc[idx,11].values
+        self.costs_train = df_train.iloc[idx,12:23].values
 
-        f = df_valid.iloc[:,1:11].values
         qp = df_valid.iloc[:,23].values
+        idx = np.where(qp==ft_qp)[0]
+        qp = df_valid.iloc[idx,23].values
         qp.shape = (qp.shape[0],1)
+        f = df_valid.iloc[idx,1:11].values
         self.features_valid = np.hstack((f,qp))
-        self.classes_valid = df_valid.iloc[:,11].values
-        self.costs_valid = df_valid.iloc[:,12:23].values
+        self.classes_valid = df_valid.iloc[idx,11].values
+        self.costs_valid = df_valid.iloc[idx,12:23].values
 
         self.classes_train[self.classes_train!=0] = 1
         self.classes_valid[self.classes_valid!=0] = 1
