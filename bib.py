@@ -66,19 +66,20 @@ class Data():
         f = df_train.iloc[:,1:11].values
         qp = df_train.iloc[:,23].values
         qp.shape = (qp.shape[0],1)
-        self.features_train = np.hstack((f,qp))
+        self.features_train = f
         self.classes_train = df_train.iloc[:,11].values
         self.costs_train = df_train.iloc[:,12:23].values
 
         f = df_valid.iloc[:,1:11].values
         qp = df_valid.iloc[:,23].values
         qp.shape = (qp.shape[0],1)
-        self.features_valid = np.hstack((f,qp))
+        self.features_valid = f
         self.classes_valid = df_valid.iloc[:,11].values
         self.costs_valid = df_valid.iloc[:,12:23].values
 
         self.classes_train[self.classes_train!=0] = 1
         self.classes_valid[self.classes_valid!=0] = 1
+        #import pdb; pdb.set_trace()
 
         self.simplify_costs()
         self.correct_misclassified_samples()
@@ -158,7 +159,7 @@ class Data():
 
 class Classifier():
     def __init__(self,data:Data, max_depth:int=5, random_state:int=42, splitter:str='best',
-    min_samples_split:int=2,min_samples_leaf:int=1 ,qp_as_feature:bool=False, criterion:str='gini',class_weight=None):
+    min_samples_split:int=2,min_samples_leaf:int=1, criterion:str='gini',class_weight=None):
         self.max_depth=max_depth
         self.random_state=random_state
         self.total_cost = 0
@@ -168,7 +169,6 @@ class Classifier():
         self.splitter=splitter
         self.min_samples_leaf = min_samples_leaf
         self.min_samples_split = min_samples_split
-        self.qp_as_feature = qp_as_feature
         self.criterion = criterion
         self.class_weight = class_weight
 
@@ -177,10 +177,7 @@ class Classifier():
         clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state,splitter=self.splitter,
         min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf,criterion=self.criterion,class_weight = self.class_weight)
 
-        if(self.qp_as_feature):
-            clf.fit(self.data.features_train,self.data.classes_train)
-        else:
-            clf.fit(self.data.features_train[:,:-1],self.data.classes_train)
+        clf.fit(self.data.features_train,self.data.classes_train)
         self.clf = clf
 
     def get_stats(self):
