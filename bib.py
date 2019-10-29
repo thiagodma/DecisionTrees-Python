@@ -46,7 +46,7 @@ class Data():
                 df0.to_csv('Data/'+seq+'_'+qp+'_depth0.csv',sep='|',encoding='utf-8',index=False, )
                 df1.to_csv('Data/'+seq+'_'+qp+'_depth1.csv',sep='|',encoding='utf-8',index=False)
 
-    def load_data(self, training_seqs:list, valid_seqs:list, balanced:bool=True):
+    def load_data(self, training_seqs:list, valid_seqs:list, ftk=None, balanced:bool=False):
         '''
         Loads the data in the class
         '''
@@ -63,14 +63,20 @@ class Data():
             aux = pd.read_csv('Data/'+valid_seq,sep='|')
             df_valid = pd.concat([df_valid,aux], sort=False)
 
-        f = df_train.iloc[:,1:11].values
+        if isinstance(ftk,list):
+            f = df_train.iloc[:,ftk].values
+        else:
+            f = df_train.iloc[:,1:11].values
         qp = df_train.iloc[:,23].values
         qp.shape = (qp.shape[0],1)
         self.features_train = f
         self.classes_train = df_train.iloc[:,11].values
         self.costs_train = df_train.iloc[:,12:23].values
 
-        f = df_valid.iloc[:,1:11].values
+        if isinstance(ftk,list):    
+            f = df_valid.iloc[:,ftk].values
+        else:
+            f = df_valid.iloc[:,1:11].values
         qp = df_valid.iloc[:,23].values
         qp.shape = (qp.shape[0],1)
         self.features_valid = f
@@ -182,8 +188,8 @@ class Classifier():
 
     def get_stats(self):
         clf=self.clf
-        y_pred = clf.predict(self.data.features_valid[:,:-1])
-        self.acc = clf.score(self.data.features_valid[:,:-1],self.data.classes_valid)
+        y_pred = clf.predict(self.data.features_valid)
+        self.acc = clf.score(self.data.features_valid,self.data.classes_valid)
         self.total_cost = self.calculate_cost_of_decisions(y_pred)
 
     def calculate_cost_of_decisions(self, y_pred):
