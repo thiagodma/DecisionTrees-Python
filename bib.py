@@ -46,7 +46,7 @@ class Data():
                 df0.to_csv('Data/'+seq+'_'+qp+'_depth0.csv',sep='|',encoding='utf-8',index=False, )
                 df1.to_csv('Data/'+seq+'_'+qp+'_depth1.csv',sep='|',encoding='utf-8',index=False)
 
-    def load_data(self, training_seqs:list, valid_seqs:list, ft_qp:int, balanced:bool=True):
+    def load_data(self, training_seqs:list, valid_seqs:list, ft_qp:int, balanced:bool=False):
         '''
         Loads the data in the class
         '''
