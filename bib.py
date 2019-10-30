@@ -93,7 +93,7 @@ class Data():
         if balanced: self.balance_data()
 
     def balance_data(self):
-        
+
         n1 = np.sum(self.classes_train)
         n0 = len(self.classes_train) - n1
 
@@ -127,6 +127,9 @@ class Data():
         self.costs_train = np.column_stack((costs0_train,costs1_train_aux))
         self.costs_valid = np.column_stack((costs0_valid,costs1_valid_aux))
 
+        self.costs_train = np.nan_to_num(self.costs_train,posinf=0)
+        self.costs_valid = np.nan_to_num(self.costs_valid,posinf=0)
+
     def correct_misclassified_samples(self):
 
         for i in range(self.costs_train.shape[0]):
@@ -157,12 +160,16 @@ class Classifier():
         self.criterion = criterion
         self.class_weight = class_weight
 
-    def fit_tree(self):
+    def fit_tree(self,weighted=False):
+
+        if weighted: sample_weight = np.abs(self.data.costs_train[:,0] - self.data.costs_train[:,1])
+        else: sample_weight = None
+
         print('Fitting the decision tree')
         clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state,splitter=self.splitter,
         min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf,criterion=self.criterion,class_weight = self.class_weight)
 
-        clf.fit(self.data.features_train,self.data.classes_train)
+        clf.fit(self.data.features_train,self.data.classes_train,sample_weight=sample_weight)
         self.clf = clf
 
     def get_stats(self):
