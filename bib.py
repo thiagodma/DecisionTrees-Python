@@ -147,7 +147,7 @@ class Data():
 
 class Classifier():
     def __init__(self,data:Data, max_depth:int=5, random_state:int=42, splitter:str='best',
-    min_samples_split:int=2,min_samples_leaf:int=1, criterion:str='gini',class_weight=None):
+    min_samples_split:int=2,min_samples_leaf:int=1, criterion:str='gini',class_weight=None,hack:bool=False):
         self.max_depth=max_depth
         self.random_state=random_state
         self.total_cost = 0
@@ -159,6 +159,37 @@ class Classifier():
         self.min_samples_split = min_samples_split
         self.criterion = criterion
         self.class_weight = class_weight
+        self.hack = hack
+
+    def hack_tree(self):
+        '''
+        This function changes the class of the leaf nodes in order to minimize the training set cost
+        '''
+
+        #gets the node that each sample belongs to
+        node_per_sample = self.clf.apply(self.data.features_train.astype('float32')[:,:10])
+        #unique leaf nodes
+        nodes = np.unique(node_per_sample)
+
+        for node in nodes:
+            #index of the samples that belong to the node 'node'
+            idx = np.where(node_per_sample == node)[0]
+            #costs for the samples in node 'node'
+            C_0 = self.data.costs_train[idx,0]
+            C_1 = self.data.costs_train[idx,1]
+            #here i change the classes in order to minimize the cost
+            if np.sum(C_0) <= np.sum(C_1):
+                q_0 = np.max(self.clf.tree_.value[node])
+                q_1 = np.min(self.clf.tree_.value[node])
+                aux = np.array((q_0,q_1))
+                aux.shape = (1,2)
+                self.clf.tree_.value[node] = aux
+            else:
+                q_0 = np.min(self.clf.tree_.value[node])
+                q_1 = np.max(self.clf.tree_.value[node])
+                aux = np.array((q_0,q_1))
+                aux.shape = (1,2)
+                self.clf.tree_.value[node] = aux
 
     def fit_tree(self,weighted=False):
 
@@ -170,6 +201,7 @@ class Classifier():
         min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf,criterion=self.criterion,class_weight = self.class_weight)
 
         clf.fit(self.data.features_train,self.data.classes_train,sample_weight=sample_weight)
+        if self.hack: self.hack_tree()
         self.clf = clf
 
     def get_stats(self):
