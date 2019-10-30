@@ -1,6 +1,5 @@
 from bib import *
 
-
 train_QP_22 = ['ChristmasTree_QP_22_depth1.csv','CrowdRun_QP_22_depth1.csv','DucksTakeOff_QP_22_depth1.csv',
 'PedestrianArea_QP_22_depth1.csv','RushHour_QP_22_depth1.csv','Sunflower_QP_22_depth1.csv']
 valid_QP_22 = ['Tractor_QP_22_depth1.csv','Wisley_QP_22_depth1.csv']
@@ -17,58 +16,23 @@ train_QP_37 = ['ChristmasTree_QP_37_depth1.csv','CrowdRun_QP_37_depth1.csv','Duc
 'PedestrianArea_QP_37_depth1.csv','RushHour_QP_37_depth1.csv','Sunflower_QP_37_depth1.csv']
 valid_QP_37 = ['Tractor_QP_37_depth1.csv','Wisley_QP_37_depth1.csv']
 
-data_QP_22 = Data()
-data_QP_22.load_data(train_QP_22,valid_QP_22,ftk=[5,6,8])
-clf_QP_22 = Classifier(data_QP_22,max_depth=5)
-clf_QP_22.fit_tree()
-clf_QP_22.prune_duplicate_leaves(clf_QP_22.clf)
-clf_QP_22.get_stats()
-print('Acc: '+ str(clf_QP_22.acc))
-print('Cost:' + str(clf_QP_22.total_cost))
-print('Min Cost: ' + str(clf_QP_22.calculate_minimal_cost()))
-print('Ratio: ' + str(clf_QP_22.total_cost/clf_QP_22.calculate_minimal_cost()))
-et = ExportTree(clf_QP_22)
-et.write_tree_cpp(1,22,3)
-print('\n')
+max_depths = [2,5,3,3]
+trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
+valids = [valid_QP_22, valid_QP_27, valid_QP_32, valid_QP_37]
+qps = [22,27,32,37]
 
-data_QP_27 = Data()
-data_QP_27.load_data(train_QP_27,valid_QP_27,ftk=[5,6,8])
-clf_QP_27 = Classifier(data_QP_27, max_depth=1)
-clf_QP_27.fit_tree()
-clf_QP_27.prune_duplicate_leaves(clf_QP_27.clf)
-clf_QP_27.get_stats()
-print('Acc: '+ str(clf_QP_27.acc))
-print('Cost:' + str(clf_QP_27.total_cost))
-print('Min Cost: ' + str(clf_QP_27.calculate_minimal_cost()))
-print('Ratio: ' + str(clf_QP_27.total_cost/clf_QP_27.calculate_minimal_cost()))
-et = ExportTree(clf_QP_27)
-et.write_tree_cpp(1,27,3)
-print('\n')
+for train,valid,max_depth,qp in zip(trains,valids,max_depths,qps):
 
-data_QP_32 = Data()
-data_QP_32.load_data(train_QP_32,valid_QP_32,ftk=[5,6,8])
-clf_QP_32 = Classifier(data_QP_32, max_depth=8)
-clf_QP_32.fit_tree()
-clf_QP_32.prune_duplicate_leaves(clf_QP_32.clf)
-clf_QP_32.get_stats()
-print('Acc: '+ str(clf_QP_32.acc))
-print('Cost:' + str(clf_QP_32.total_cost))
-print('Min Cost: ' + str(clf_QP_32.calculate_minimal_cost()))
-print('Ratio: ' + str(clf_QP_32.total_cost/clf_QP_32.calculate_minimal_cost()))
-et = ExportTree(clf_QP_32)
-et.write_tree_cpp(1,32,3)
-print('\n')
-
-data_QP_37 = Data()
-data_QP_37.load_data(train_QP_37,valid_QP_37,ftk=[5,6,8])
-clf_QP_37 = Classifier(data_QP_37, max_depth=1)
-clf_QP_37.fit_tree()
-clf_QP_37.prune_duplicate_leaves(clf_QP_37.clf)
-clf_QP_37.get_stats()
-print('Acc: '+ str(clf_QP_37.acc))
-print('Cost:' + str(clf_QP_37.total_cost))
-print('Min Cost: ' + str(clf_QP_37.calculate_minimal_cost()))
-print('Ratio: ' + str(clf_QP_37.total_cost/clf_QP_37.calculate_minimal_cost()))
-et = ExportTree(clf_QP_37)
-et.write_tree_cpp(1,37,3)
-print('\n')
+    data = Data()
+    data.load_data(train,valid,ftk=[5,6,8])
+    clf = Classifier(data,max_depth=max_depth,class_weight='balanced')
+    clf.fit_tree(weighted=True)
+    clf.prune_duplicate_leaves(clf.clf)
+    clf.get_stats()
+    print('Acc: '+ str(clf.acc))
+    print('Cost:' + str(clf.total_cost))
+    print('Min Cost: ' + str(clf.calculate_minimal_cost()))
+    print('Ratio: ' + str(clf.total_cost/clf.calculate_minimal_cost()))
+    et = ExportTree(clf)
+    et.write_tree_cpp(1,qp,3)
+    print('\n')
