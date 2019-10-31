@@ -34,15 +34,10 @@ for train,valid in zip(trains,valids):
     costs = []
     for depth in depths:
 
-        clf = Classifier(data,max_depth=depth,class_weight='balanced')
+        clf = Classifier(data,max_depth=depth,class_weight='balanced',hack=True)
         clf.fit_tree(weighted=True)
         clf.prune_duplicate_leaves(clf.clf)
-        #clf.hack_tree()
         clf.get_stats()
-        #print('Acc: '+ str(clf_QP_32.acc))
-        #print('Cost:' + str(clf_QP_32.total_cost))
-        #print('Min Cost: ' + str(clf_QP_32.calculate_minimal_cost()))
-        #print('Ratio: ' + str(clf_QP_32.total_cost/clf_QP_32.calculate_minimal_cost()))
         accs.append(clf.acc)
         costs.append(clf.total_cost)
 
