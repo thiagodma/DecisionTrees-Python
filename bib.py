@@ -180,7 +180,7 @@ class Classifier():
         '''
 
         #gets the node that each sample belongs to
-        node_per_sample = self.clf.apply(self.data.features_train.astype('float32')[:,:10])
+        node_per_sample = self.clf.apply(self.data.features_train.astype('float32'))
         #unique leaf nodes
         nodes = np.unique(node_per_sample)
 
