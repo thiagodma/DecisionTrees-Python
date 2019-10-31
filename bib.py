@@ -161,6 +161,19 @@ class Classifier():
         self.class_weight = class_weight
         self.hack = hack
 
+    def fit_tree(self,weighted=False):
+
+        if weighted: sample_weight = np.abs(self.data.costs_train[:,0] - self.data.costs_train[:,1])
+        else: sample_weight = None
+
+        print('Fitting the decision tree')
+        clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state,splitter=self.splitter,
+        min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf,criterion=self.criterion,class_weight = self.class_weight)
+
+        clf.fit(self.data.features_train,self.data.classes_train,sample_weight=sample_weight)
+        self.clf = clf
+        if self.hack: self.hack_tree()
+
     def hack_tree(self):
         '''
         This function changes the class of the leaf nodes in order to minimize the training set cost
@@ -190,19 +203,6 @@ class Classifier():
                 aux = np.array((q_0,q_1))
                 aux.shape = (1,2)
                 self.clf.tree_.value[node] = aux
-
-    def fit_tree(self,weighted=False):
-
-        if weighted: sample_weight = np.abs(self.data.costs_train[:,0] - self.data.costs_train[:,1])
-        else: sample_weight = None
-
-        print('Fitting the decision tree')
-        clf = DecisionTreeClassifier(max_depth=self.max_depth,random_state=self.random_state,splitter=self.splitter,
-        min_samples_split=self.min_samples_split, min_samples_leaf=self.min_samples_leaf,criterion=self.criterion,class_weight = self.class_weight)
-
-        clf.fit(self.data.features_train,self.data.classes_train,sample_weight=sample_weight)
-        if self.hack: self.hack_tree()
-        self.clf = clf
 
     def get_stats(self):
         clf=self.clf
