@@ -28,7 +28,7 @@ best_parameters = []
 
 for train,valid in zip(trains,valids):
     data = Data()
-    data.load_data(train,valid,ftk=[1,3,5,6,7,8])
+    data.load_data(train,valid,ftk=[5,6,8])
 
     accs = []
     costs = []
