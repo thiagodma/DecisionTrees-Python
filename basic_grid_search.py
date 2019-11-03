@@ -19,7 +19,7 @@ valid_QP_37 = ['Tractor_QP_37_depth0.csv','Wisley_QP_37_depth0.csv']
 
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
 valids = [valid_QP_22, valid_QP_27, valid_QP_32, valid_QP_37]
-depths = np.linspace(1,5,num=5,dtype=np.int64)
+depths = np.linspace(1,10,num=5,dtype=np.int64)
 #FT_QPs = [[23,24,25],[28,29,30],[33,34,35],[38,39,40]]
 
 #one parameter per QP
@@ -41,7 +41,7 @@ for train,valid in zip(trains,valids):
         accs.append(clf.acc)
         costs.append(clf.total_cost)
 
-    best_parameters.append((depths[np.argmax(accs)],costs[np.argmax(accs)]))
+    best_parameters.append((depths[np.argmin(costs)],costs[np.argmin(costs)]))
 
 for best_parameter in best_parameters: print(best_parameter)
 
