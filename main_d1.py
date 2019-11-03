@@ -16,7 +16,7 @@ train_QP_37 = ['ChristmasTree_QP_37_depth1.csv','CrowdRun_QP_37_depth1.csv','Duc
 'PedestrianArea_QP_37_depth1.csv','RushHour_QP_37_depth1.csv','Sunflower_QP_37_depth1.csv']
 valid_QP_37 = ['Tractor_QP_37_depth1.csv','Wisley_QP_37_depth1.csv']
 
-max_depths = [2,5,3,3]
+max_depths = [1,5,10,3]
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
 valids = [valid_QP_22, valid_QP_27, valid_QP_32, valid_QP_37]
 qps = [22,27,32,37]
@@ -25,7 +25,7 @@ for train,valid,max_depth,qp in zip(trains,valids,max_depths,qps):
 
     data = Data()
     data.load_data(train,valid,ftk=[5,6,8])
-    clf = Classifier(data,max_depth=max_depth,class_weight='balanced')
+    clf = Classifier(data,max_depth=max_depth,class_weight='balanced',hack=True)
     clf.fit_tree(weighted=True)
     clf.prune_duplicate_leaves(clf.clf)
     clf.get_stats()
