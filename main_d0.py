@@ -19,7 +19,7 @@ valid_QP_37 = ['Tractor_QP_37_depth0.csv','Wisley_QP_37_depth0.csv']
 #checks if there is a 'tree.cpp' file. If so, deletes it
 if os.path.isfile('tree.cpp'): os.remove('tree.cpp')
 
-max_depths = [5,5,5,10]
+max_depths = [7,3,3,7]
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
 valids = [valid_QP_22, valid_QP_27, valid_QP_32, valid_QP_37]
 qps = [22,27,32,37]
@@ -27,9 +27,9 @@ qps = [22,27,32,37]
 for train,valid,max_depth,qp in zip(trains,valids,max_depths,qps):
 
     data = Data()
-    data.load_data(train,valid,ftk=[1,3,5,6,7,8])
-    clf = Classifier(data,max_depth=max_depth,class_weight='balanced',hack=True)
-    clf.fit_tree(weighted=True)
+    data.load_data(train,valid,)
+    clf = Classifier(data,max_depth=max_depth)
+    clf.fit_tree()
     clf.prune_duplicate_leaves(clf.clf)
     clf.get_stats()
     print('Acc: '+ str(clf.acc))
