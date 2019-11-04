@@ -16,7 +16,7 @@ train_QP_37 = ['ChristmasTree_QP_37_depth1.csv','CrowdRun_QP_37_depth1.csv','Duc
 'PedestrianArea_QP_37_depth1.csv','RushHour_QP_37_depth1.csv','Sunflower_QP_37_depth1.csv']
 valid_QP_37 = ['Tractor_QP_37_depth1.csv','Wisley_QP_37_depth1.csv']
 
-max_depths = [6,1,6,1]
+max_depths = [10,5,1,10]
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
 valids = [valid_QP_22, valid_QP_27, valid_QP_32, valid_QP_37]
 qps = [22,27,32,37]
