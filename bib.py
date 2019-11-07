@@ -17,34 +17,31 @@ class Data():
         self.classes_valid = []
 
 
-    def get_data(self):
+    def get_data(self,input_dir:str,output_dir:str):
         '''
         Imports training data into a folder named 'Data'.
         '''
-        if not os.path.isdir('Data'): os.mkdir('Data')
+        if not os.path.isdir(input_dir): os.mkdir(input_dir)
 
-        d0_files = ['Features_Depth_0_Training_1.txt','Features_Depth_0_Training_2.txt',
-        'Features_Depth_0_Training_3.txt','Features_Depth_0_Training_4.txt','Features_Depth_0_Training_5.txt']
+        d0_files = ['Features_Depth_0_Training_1.txt']
+        d1_files = ['Features_Depth_1_Training_1.txt']
 
-        d1_files = ['Features_Depth_1_Training_1.txt', 'Features_Depth_1_Training_2.txt',
-        'Features_Depth_1_Training_3.txt','Features_Depth_1_Training_4.txt','Features_Depth_1_Training_5.txt']
-
-        seqs = list(next(os.walk('FeaturesDataset'))[1])
+        seqs = list(next(os.walk(output_dir))[1])
         for seq in seqs:
-            qps = list(next(os.walk('FeaturesDataset/' + seq))[1])
+            qps = list(next(os.walk(output_dir + seq))[1])
             for qp in qps:
                 df0 = pd.DataFrame()
                 df1 = pd.DataFrame()
                 for d0_file in d0_files:
-                    aux = pd.read_csv('FeaturesDataset/' + seq + '/' + qp + '/HEVC/' + d0_file, sep=' ', names=list(range(25)), header=None)
+                    aux = pd.read_csv(output_dir + seq + '/' + qp + '/HEVC_Trainig/' + d0_file, sep=' ', names=list(range(25)), header=None)
                     aux = aux.drop(24,axis=1)
                     df0 = pd.concat([df0,aux], sort=False, )
                 for d1_file in d1_files:
-                    aux = pd.read_csv('FeaturesDataset/' + seq + '/' + qp + '/HEVC/' + d1_file, sep=' ', names=list(range(25)), header=None)
+                    aux = pd.read_csv(output_dir + seq + '/' + qp + '/HEVC_Training/' + d1_file, sep=' ', names=list(range(25)), header=None)
                     aux = aux.drop(24,axis=1)
                     df1 = pd.concat([df1,aux],sort=False)
-                df0.to_csv('Data/'+seq+'_'+qp+'_depth0.csv',sep='|',encoding='utf-8',index=False, )
-                df1.to_csv('Data/'+seq+'_'+qp+'_depth1.csv',sep='|',encoding='utf-8',index=False)
+                df0.to_csv(output_dir+'/'+seq+'_'+qp+'_depth0.csv',sep='|',encoding='utf-8',index=False, )
+                df1.to_csv(output_dir+'/'+seq+'_'+qp+'_depth1.csv',sep='|',encoding='utf-8',index=False)
 
     def load_data(self, training_seqs:list, valid_seqs:list, ftk=None, balanced:bool=False):
         '''
