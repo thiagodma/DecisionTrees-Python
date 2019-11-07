@@ -21,23 +21,25 @@ class Data():
         '''
         Imports training data into a folder named 'Data'.
         '''
-        if not os.path.isdir(input_dir): os.mkdir(input_dir)
+        if not os.path.isdir(output_dir): os.mkdir(output_dir)
 
         d0_files = ['Features_Depth_0_Training_1.txt']
         d1_files = ['Features_Depth_1_Training_1.txt']
 
-        seqs = list(next(os.walk(output_dir))[1])
+        seqs = list(next(os.walk(input_dir))[1])
         for seq in seqs:
-            qps = list(next(os.walk(output_dir + seq))[1])
+            # DEBUG:
+            #import pdb; pdb.set_trace()
+            qps = list(next(os.walk(input_dir + '/' + seq))[1])
             for qp in qps:
                 df0 = pd.DataFrame()
                 df1 = pd.DataFrame()
                 for d0_file in d0_files:
-                    aux = pd.read_csv(output_dir + seq + '/' + qp + '/HEVC_Trainig/' + d0_file, sep=' ', names=list(range(25)), header=None)
+                    aux = pd.read_csv(input_dir + '/' + seq + '/' + qp + '/HEVC_Training/' + d0_file, sep=' ', names=list(range(25)), header=None)
                     aux = aux.drop(24,axis=1)
                     df0 = pd.concat([df0,aux], sort=False, )
                 for d1_file in d1_files:
-                    aux = pd.read_csv(output_dir + seq + '/' + qp + '/HEVC_Training/' + d1_file, sep=' ', names=list(range(25)), header=None)
+                    aux = pd.read_csv(input_dir + '/' + seq + '/' + qp + '/HEVC_Training/' + d1_file, sep=' ', names=list(range(25)), header=None)
                     aux = aux.drop(24,axis=1)
                     df1 = pd.concat([df1,aux],sort=False)
                 df0.to_csv(output_dir+'/'+seq+'_'+qp+'_depth0.csv',sep='|',encoding='utf-8',index=False, )
