@@ -1,36 +1,25 @@
 from bib import *
 
-train_QP_22 = ['ChristmasTree_QP_22_depth0.csv','CrowdRun_QP_22_depth0.csv','DucksTakeOff_QP_22_depth0.csv',
-'PedestrianArea_QP_22_depth0.csv','RushHour_QP_22_depth0.csv','Sunflower_QP_22_depth0.csv']
-valid_QP_22 = ['Tractor_QP_22_depth0.csv','Wisley_QP_22_depth0.csv']
-
-train_QP_27 = ['ChristmasTree_QP_27_depth0.csv','CrowdRun_QP_27_depth0.csv','DucksTakeOff_QP_27_depth0.csv',
-'PedestrianArea_QP_27_depth0.csv','RushHour_QP_27_depth0.csv','Sunflower_QP_27_depth0.csv']
-valid_QP_27 = ['Tractor_QP_27_depth0.csv','Wisley_QP_27_depth0.csv']
-
-train_QP_32 = ['ChristmasTree_QP_32_depth0.csv','CrowdRun_QP_32_depth0.csv','DucksTakeOff_QP_32_depth0.csv',
-'PedestrianArea_QP_32_depth0.csv','RushHour_QP_32_depth0.csv','Sunflower_QP_32_depth0.csv']
-valid_QP_32 = ['Tractor_QP_32_depth0.csv','Wisley_QP_32_depth0.csv']
-
-train_QP_37 = ['ChristmasTree_QP_37_depth0.csv','CrowdRun_QP_37_depth0.csv','DucksTakeOff_QP_37_depth0.csv',
-'PedestrianArea_QP_37_depth0.csv','RushHour_QP_37_depth0.csv','Sunflower_QP_37_depth0.csv']
-valid_QP_37 = ['Tractor_QP_37_depth0.csv','Wisley_QP_37_depth0.csv']
+train_QP_22 = ['BasketballDrive_QP_22_depth0.csv']
+train_QP_27 = ['BasketballDrive_QP_27_depth0.csv']
+train_QP_32 = ['BasketballDrive_QP_32_depth0.csv']
+train_QP_37 = ['BasketballDrive_QP_37_depth0.csv']
 
 #checks if there is a 'tree.cpp' file. If so, deletes it
 if os.path.isfile('tree.cpp'): os.remove('tree.cpp')
 
-max_depths = [7,3,3,7]
+max_depths = [6,4,8,8]
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
-valids = [valid_QP_22, valid_QP_27, valid_QP_32, valid_QP_37]
+
 qps = [22,27,32,37]
 
-for train,valid,max_depth,qp in zip(trains,valids,max_depths,qps):
+for train,max_depth,qp in zip(trains,max_depths,qps):
 
     data = Data()
     #if qp == 27 or qp==37:
     #    data.load_data(train,valid,ftk=[1,3,5,6,7,8])
     #else:
-    data.load_data(train,valid)
+    data.load_data(train,train)
     #if qp == 22:
     clf = Classifier(data,max_depth=max_depth)
     #else:
