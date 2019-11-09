@@ -54,12 +54,12 @@ class Data():
 
         df_train = pd.DataFrame()
         for training_seq in training_seqs:
-            aux = pd.read_csv('Data/'+training_seq,sep='|')
+            aux = pd.read_csv('DataOnline/'+training_seq,sep='|')
             df_train = pd.concat([df_train,aux], sort=False)
 
         df_valid = pd.DataFrame()
         for valid_seq in valid_seqs:
-            aux = pd.read_csv('Data/'+valid_seq,sep='|')
+            aux = pd.read_csv('DataOnline/'+valid_seq,sep='|')
             df_valid = pd.concat([df_valid,aux], sort=False)
 
         if isinstance(ftk,list):
