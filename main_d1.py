@@ -1,9 +1,9 @@
 from bib import *
 
-train_QP_22 = ['BQTerrace_QP_22_depth1.csv']
-train_QP_27 = ['BQTerrace_QP_27_depth1.csv']
-train_QP_32 = ['BQTerrace_QP_32_depth1.csv']
-train_QP_37 = ['BQTerrace_QP_37_depth1.csv']
+train_QP_22 = ['Cactus_QP_22_depth1.csv']
+train_QP_27 = ['Cactus_QP_27_depth1.csv']
+train_QP_32 = ['Cactus_QP_32_depth1.csv']
+train_QP_37 = ['Cactus_QP_37_depth1.csv']
 
 max_depths = [6,8,6,2]
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
