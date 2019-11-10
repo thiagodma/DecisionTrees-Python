@@ -37,7 +37,7 @@ for train,valid,qp in zip(trains,valids,qps):
     for depth in depths:
 
         #if qp == 22:
-        clf = Classifier(data,max_depth=depth)
+        clf = Classifier(data,max_depth=depth,hack=True)
         #else:
         #    clf = Classifier(data,max_depth=depth,hack=True)
         #clf.fit_tree()
