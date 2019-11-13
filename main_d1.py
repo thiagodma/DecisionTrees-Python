@@ -1,9 +1,9 @@
 from bib import *
 
-train_QP_22 = ['BasketballDrive_QP_22_depth1.csv']
-train_QP_27 = ['BasketballDrive_QP_27_depth1.csv']
-train_QP_32 = ['BasketballDrive_QP_32_depth1.csv']
-train_QP_37 = ['BasketballDrive_QP_37_depth1.csv']
+train_QP_22 = ['ParkScene_QP_22_depth1.csv']
+train_QP_27 = ['ParkScene_QP_27_depth1.csv']
+train_QP_32 = ['ParkScene_QP_32_depth1.csv']
+train_QP_37 = ['ParkScene_QP_37_depth1.csv']
 
 max_depths = [10,7,1,3]
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
