@@ -5059,84 +5059,78 @@ Bool TTrEngine::xModeDecision_Tr_DecisionTrees_v1(UInt uiQP, UInt uiLevel, UInt 
 	*/
     //frame atual: m_uiCurrFrame
 	//Checks if it is intra
-	if (isIntra == false)
+	if (isIntra == false || m_uiCurrFrame > 12)
 	{
 		//Then Classify the feature.
 		UInt uiClassification;
 
-            if (m_uiCurrFrame <=12){ //emulating online training
-                uiClassification = 1;
-                //printf("Frame: %d, training.", "%d\n", m_uiCurrFrame);
-            }
-            else
-            {
-                //printf("Frame: %d, inference.", "%d\n", m_uiCurrFrame);
-    			if (uiLevel == 0)
-    			{
-                    //Double dFeatures_aux[6] = {dFeatures[1],dFeatures[3],dFeatures[5],dFeatures[6],dFeatures[7],dFeatures[8]};
-    				switch (uiQP)
-    				{
-    				case 23: uiClassification = xdecide_depth0_QP22_v3(dFeatures);
-    					     break;
-    				case 24: uiClassification = xdecide_depth0_QP22_v3(dFeatures);
-    					     break;
-    				case 25: uiClassification = xdecide_depth0_QP22_v3(dFeatures);
-    					     break;
-    				case 28: uiClassification = xdecide_depth0_QP27_v3(dFeatures);
-    					     break;
-    				case 29: uiClassification = xdecide_depth0_QP27_v3(dFeatures);
-    					     break;
-    				case 30: uiClassification = xdecide_depth0_QP27_v3(dFeatures);
-    					     break;
-    				case 33: uiClassification = xdecide_depth0_QP32_v3(dFeatures);
-    					     break;
-    				case 34: uiClassification = xdecide_depth0_QP32_v3(dFeatures);
-    				 	     break;
-    				case 35: uiClassification = xdecide_depth0_QP32_v3(dFeatures);
-    					     break;
-    				case 38: uiClassification = xdecide_depth0_QP37_v3(dFeatures);
-    					     break;
-    				case 39: uiClassification = xdecide_depth0_QP37_v3(dFeatures);
-    					     break;
-    				case 40: uiClassification = xdecide_depth0_QP37_v3(dFeatures);
-    					     break;
-    				default: printf("Não existe uma árvore estática definida para este valor de QP");
-    				}
-    			}
+            //printf("Frame: %d, inference.", "%d\n", m_uiCurrFrame);
+			if (uiLevel == 0)
+			{
+                //Double dFeatures_aux[6] = {dFeatures[1],dFeatures[3],dFeatures[5],dFeatures[6],dFeatures[7],dFeatures[8]};
+				switch (uiQP)
+				{
+				case 23: uiClassification = xdecide_depth0_QP22_v3(dFeatures);
+					     break;
+				case 24: uiClassification = xdecide_depth0_QP22_v3(dFeatures);
+					     break;
+				case 25: uiClassification = xdecide_depth0_QP22_v3(dFeatures);
+					     break;
+				case 28: uiClassification = xdecide_depth0_QP27_v3(dFeatures);
+					     break;
+				case 29: uiClassification = xdecide_depth0_QP27_v3(dFeatures);
+					     break;
+				case 30: uiClassification = xdecide_depth0_QP27_v3(dFeatures);
+					     break;
+				case 33: uiClassification = xdecide_depth0_QP32_v3(dFeatures);
+					     break;
+				case 34: uiClassification = xdecide_depth0_QP32_v3(dFeatures);
+				 	     break;
+				case 35: uiClassification = xdecide_depth0_QP32_v3(dFeatures);
+					     break;
+				case 38: uiClassification = xdecide_depth0_QP37_v3(dFeatures);
+					     break;
+				case 39: uiClassification = xdecide_depth0_QP37_v3(dFeatures);
+					     break;
+				case 40: uiClassification = xdecide_depth0_QP37_v3(dFeatures);
+					     break;
+				default: printf("Não existe uma árvore estática definida para este valor de QP");
+				}
+			}
 
-    			if (uiLevel == 1)
-    			{
-                    Double dFeatures_aux[6] = {dFeatures[5],dFeatures[6],dFeatures[8]};
-    				switch (uiQP)
-    				{
-    				case 23: uiClassification = xdecide_depth1_QP22_v3(dFeatures);
-    					break;
-    				case 24: uiClassification = xdecide_depth1_QP22_v3(dFeatures);
-    					break;
-    				case 25: uiClassification = xdecide_depth1_QP22_v3(dFeatures);
-    					break;
-    				case 28: uiClassification = xdecide_depth1_QP27_v3(dFeatures);
-    					break;
-    				case 29: uiClassification = xdecide_depth1_QP27_v3(dFeatures);
-    					break;
-    				case 30: uiClassification = xdecide_depth1_QP27_v3(dFeatures);
-    					break;
-    				case 33: uiClassification = xdecide_depth1_QP32_v3(dFeatures);
-    					break;
-    				case 34: uiClassification = xdecide_depth1_QP32_v3(dFeatures);
-    					break;
-    				case 35: uiClassification = xdecide_depth1_QP32_v3(dFeatures);
-    					break;
-    				case 38: uiClassification = xdecide_depth1_QP37_v3(dFeatures);
-    					break;
-    				case 39: uiClassification = xdecide_depth1_QP37_v3(dFeatures);
-    					break;
-    				case 40: uiClassification = xdecide_depth1_QP37_v3(dFeatures);
-    					break;
-    				default: printf("Não existe uma árvore estática definida para este valor de QP");
-    				}
-    			}
-            }
+			if (uiLevel == 1)
+			{
+                Double dFeatures_aux[6] = {dFeatures[5],dFeatures[6],dFeatures[8]};
+				switch (uiQP)
+				{
+				case 23: uiClassification = xdecide_depth1_QP22_v3(dFeatures);
+					break;
+				case 24: uiClassification = xdecide_depth1_QP22_v3(dFeatures);
+					break;
+				case 25: uiClassification = xdecide_depth1_QP22_v3(dFeatures);
+					break;
+				case 28: uiClassification = xdecide_depth1_QP27_v3(dFeatures);
+					break;
+				case 29: uiClassification = xdecide_depth1_QP27_v3(dFeatures);
+					break;
+				case 30: uiClassification = xdecide_depth1_QP27_v3(dFeatures);
+					break;
+				case 33: uiClassification = xdecide_depth1_QP32_v3(dFeatures);
+					break;
+				case 34: uiClassification = xdecide_depth1_QP32_v3(dFeatures);
+					break;
+				case 35: uiClassification = xdecide_depth1_QP32_v3(dFeatures);
+					break;
+				case 38: uiClassification = xdecide_depth1_QP37_v3(dFeatures);
+					break;
+				case 39: uiClassification = xdecide_depth1_QP37_v3(dFeatures);
+					break;
+				case 40: uiClassification = xdecide_depth1_QP37_v3(dFeatures);
+					break;
+				default: printf("Não existe uma árvore estática definida para este valor de QP");
+				}
+			}
+
 
 
 		//printf("STAGE %d - Classification = %d .\n",0,uiClassification);
@@ -5180,7 +5174,6 @@ Bool TTrEngine::xModeDecision_Tr_DecisionTrees_v1(UInt uiQP, UInt uiLevel, UInt 
 
 	return bIsSplit;
 }
-
 
 
 Bool TTrEngine::checkEarlyTermination_LDF_v5(UInt uiDepth, UInt uiRow, UInt uiCol, UInt uiQP, UInt uiMode, Double dBestCost, TTrModeDecision *modeDecision)
