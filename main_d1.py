@@ -1,11 +1,11 @@
 from bib import *
 
-train_QP_22 = ['ParkScene_QP_22_depth1.csv']
-train_QP_27 = ['ParkScene_QP_27_depth1.csv']
-train_QP_32 = ['ParkScene_QP_32_depth1.csv']
-train_QP_37 = ['ParkScene_QP_37_depth1.csv']
+train_QP_22 = ['BasketballDrive_QP_22_depth1.csv']
+train_QP_27 = ['BasketballDrive_QP_27_depth1.csv']
+train_QP_32 = ['BasketballDrive_QP_32_depth1.csv']
+train_QP_37 = ['BasketballDrive_QP_37_depth1.csv']
 
-max_depths = [6,8,6,2]
+max_depths = [10,7,1,3]
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
 qps = [22,27,32,37]
 
@@ -17,7 +17,7 @@ for train,max_depth,qp in zip(trains,max_depths,qps):
     #else:
     data.load_data(train,train)
     #if qp == 22:
-    clf = Classifier(data,max_depth=max_depth)
+    clf = Classifier(data,max_depth=max_depth,hack=True)
     #else:
     #    clf = Classifier(data,max_depth=max_depth,hack=True)
     clf.fit_tree()
