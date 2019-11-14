@@ -6472,49 +6472,28 @@ UInt TTrEngine::xdecide_depth1_QP37_v2(Double *dFeatures)
 // Transcoder_v3 trees (Python Default Decision Trees)
 UInt TTrEngine::xdecide_depth0_QP22_v3(Double *dFeatures)
 {
-if(dFeatures[4] <= 60.50)
+if(dFeatures[2] <= 60.50)
 {
-    if(dFeatures[6] <= 0.41)
+    if(dFeatures[4] <= 0.41)
     {
-        if(dFeatures[6] <= 0.03)
+        if(dFeatures[4] <= 0.03)
         {
-            if(dFeatures[3] <= 3.41)
+            if(dFeatures[5] <= 0.47)
             {
-                if(dFeatures[9] <= 0.47)
+                if(dFeatures[0] <= 926.16)
                 {
-                    if(dFeatures[2] <= 0.00)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
                 else
                 {
-                    if(dFeatures[1] <= 1546.27)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 1;
                 }
             }
             else
             {
-                if(dFeatures[3] <= 5.27)
+                if(dFeatures[1] <= 2.12)
                 {
-                    if(dFeatures[7] <= 0.72)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
                 else
                 {
@@ -6524,149 +6503,79 @@ if(dFeatures[4] <= 60.50)
         }
         else
         {
-            if(dFeatures[3] <= 1.63)
+            if(dFeatures[1] <= 0.97)
             {
                 if(dFeatures[0] <= 5.76)
                 {
-                    if(dFeatures[1] <= 4.27)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 1;
                 }
                 else
                 {
-                    if(dFeatures[5] <= 15.50)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
             }
             else
             {
-                if(dFeatures[1] <= 1.39)
+                if(dFeatures[1] <= 1.13)
                 {
-                    if(dFeatures[0] <= 0.24)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 1;
                 }
                 else
                 {
-                    if(dFeatures[3] <= 4.31)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
             }
         }
     }
     else
     {
-        if(dFeatures[6] <= 0.59)
+        if(dFeatures[4] <= 0.59)
         {
-            if(dFeatures[3] <= 1.76)
+            if(dFeatures[5] <= 0.28)
             {
-                if(dFeatures[1] <= 0.70)
+                if(dFeatures[0] <= 0.64)
                 {
                     return 1;
                 }
                 else
                 {
-                    if(dFeatures[0] <= 181.47)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
             }
             else
             {
-                if(dFeatures[0] <= 224.19)
+                if(dFeatures[0] <= 226.60)
                 {
-                    if(dFeatures[2] <= 3.27)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
                 else
                 {
-                    return 1;
+                    return 0;
                 }
             }
         }
         else
         {
-            if(dFeatures[6] <= 0.78)
+            if(dFeatures[4] <= 0.78)
             {
-                if(dFeatures[5] <= 12.50)
+                if(dFeatures[3] <= 12.50)
                 {
-                    if(dFeatures[2] <= 0.84)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
                 else
                 {
-                    if(dFeatures[3] <= 2.25)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
             }
             else
             {
-                if(dFeatures[5] <= 22.50)
+                if(dFeatures[3] <= 22.50)
                 {
-                    if(dFeatures[0] <= 481.74)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 1;
                 }
                 else
                 {
-                    if(dFeatures[5] <= 31.50)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
             }
         }
@@ -6674,91 +6583,42 @@ if(dFeatures[4] <= 60.50)
 }
 else
 {
-    if(dFeatures[5] <= 75.50)
+    if(dFeatures[3] <= 75.50)
     {
         if(dFeatures[0] <= 1.53)
         {
-            if(dFeatures[2] <= 1.93)
+            if(dFeatures[1] <= 1.93)
             {
                 if(dFeatures[0] <= 0.09)
-                {
-                    if(dFeatures[3] <= 0.32)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[6] <= 0.16)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[5] <= 36.50)
                 {
                     return 1;
                 }
                 else
                 {
-                    if(dFeatures[4] <= 92.00)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
+                }
+            }
+            else
+            {
+                if(dFeatures[3] <= 36.50)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 0;
                 }
             }
         }
         else
         {
-            if(dFeatures[5] <= 47.50)
+            if(dFeatures[3] <= 47.50)
             {
-                if(dFeatures[1] <= 1823.82)
-                {
-                    if(dFeatures[3] <= 1.52)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[4] <= 76.00)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
+                return 0;
             }
             else
             {
-                if(dFeatures[0] <= 7.69)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 0;
-                }
+                return 0;
             }
         }
     }
@@ -6766,108 +6626,38 @@ else
     {
         if(dFeatures[0] <= 0.94)
         {
-            if(dFeatures[1] <= 1.89)
+            if(dFeatures[3] <= 81.50)
             {
-                if(dFeatures[5] <= 81.50)
+                if(dFeatures[0] <= 0.14)
                 {
-                    if(dFeatures[0] <= 0.14)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 1;
                 }
                 else
                 {
-                    if(dFeatures[8] <= 0.72)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
             }
             else
             {
-                if(dFeatures[5] <= 116.50)
+                if(dFeatures[0] <= 0.88)
                 {
-                    if(dFeatures[3] <= 1.40)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
                 else
                 {
-                    if(dFeatures[3] <= 3.77)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
             }
         }
         else
         {
-            if(dFeatures[5] <= 130.50)
+            if(dFeatures[3] <= 130.50)
             {
-                if(dFeatures[0] <= 7.57)
-                {
-                    if(dFeatures[1] <= 15.48)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[7] <= 0.97)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
+                return 0;
             }
             else
             {
-                if(dFeatures[3] <= 0.00)
-                {
-                    if(dFeatures[3] <= 0.00)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[0] <= 16.14)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                        }
-                    }
+                return 0;
                 }
             }
         }
@@ -6876,49 +6666,147 @@ else
 
 UInt TTrEngine::xdecide_depth0_QP27_v3(Double *dFeatures)
 {
-if(dFeatures[6] <= 0.78)
+if(dFeatures[4] <= 0.78)
 {
-    if(dFeatures[8] <= 0.03)
+    if(dFeatures[3] <= 16.50)
     {
-        if(dFeatures[7] <= 0.41)
+        if(dFeatures[0] <= 3.89)
         {
-            if(dFeatures[3] <= 0.81)
+            if(dFeatures[2] <= 1.00)
             {
-                return 1;
+                if(dFeatures[0] <= 1.38)
+                {
+                    if(dFeatures[0] <= 0.07)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[1] <= 0.62)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
             }
             else
             {
-                return 0;
+                if(dFeatures[1] <= 0.00)
+                {
+                    if(dFeatures[1] <= 0.00)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[5] <= 0.41)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
             }
         }
         else
         {
-            if(dFeatures[2] <= 0.00)
+            if(dFeatures[4] <= 0.28)
             {
-                return 1;
+                if(dFeatures[0] <= 1233.03)
+                {
+                    if(dFeatures[1] <= 0.00)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[0] <= 2044.97)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
             }
             else
             {
-                return 1;
+                if(dFeatures[1] <= 0.07)
+                {
+                    if(dFeatures[5] <= 0.22)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[2] <= 1.00)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
             }
         }
     }
     else
     {
-        if(dFeatures[0] <= 0.96)
+        if(dFeatures[1] <= 0.00)
         {
-            if(dFeatures[4] <= 13.50)
+            if(dFeatures[4] <= 0.09)
             {
-                return 1;
+                return 0;
             }
             else
             {
-                return 0;
+                if(dFeatures[1] <= 0.00)
+                {
+                    if(dFeatures[1] <= 0.00)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    return 1;
+                }
             }
         }
         else
         {
-            if(dFeatures[4] <= 7.50)
+            if(dFeatures[3] <= 34.50)
             {
                 return 1;
             }
@@ -6931,40 +6819,159 @@ if(dFeatures[6] <= 0.78)
 }
 else
 {
-    if(dFeatures[6] <= 0.91)
+    if(dFeatures[4] <= 0.91)
     {
-        if(dFeatures[1] <= 43.73)
+        if(dFeatures[0] <= 11.07)
         {
-            if(dFeatures[3] <= 1.21)
+            if(dFeatures[0] <= 0.04)
             {
-                return 1;
+                if(dFeatures[1] <= 0.03)
+                {
+                    if(dFeatures[3] <= 4.50)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[2] <= 4.50)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
             }
             else
             {
-                return 1;
+                if(dFeatures[4] <= 0.84)
+                {
+                    if(dFeatures[0] <= 0.07)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[0] <= 0.34)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
             }
         }
         else
         {
-            if(dFeatures[0] <= 537.37)
+            if(dFeatures[1] <= 0.10)
             {
-                return 0;
+                if(dFeatures[0] <= 197.20)
+                {
+                    if(dFeatures[0] <= 46.93)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
             }
             else
             {
-                return 1;
+                if(dFeatures[0] <= 288.51)
+                {
+                    if(dFeatures[5] <= 0.16)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    return 1;
+                }
             }
         }
     }
     else
     {
-        if(dFeatures[6] <= 0.97)
+        if(dFeatures[4] <= 0.97)
         {
-            return 1;
+            if(dFeatures[3] <= 3.50)
+            {
+                if(dFeatures[0] <= 0.78)
+                {
+                    if(dFeatures[0] <= 0.76)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[1] <= 0.12)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+            }
+            else
+            {
+                if(dFeatures[0] <= 0.42)
+                {
+                    if(dFeatures[1] <= 0.12)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
+            }
         }
         else
         {
-            return 1;
+            if(dFeatures[0] <= 0.06)
+            {
+                return 1;
+            }
+            else
+            {
+                return 1;
+                }
             }
         }
     }
@@ -6972,78 +6979,250 @@ else
 
 UInt TTrEngine::xdecide_depth0_QP32_v3(Double *dFeatures)
 {
-if(dFeatures[7] <= 0.16)
+if(dFeatures[5] <= 0.16)
 {
-    if(dFeatures[6] <= 0.97)
+    if(dFeatures[4] <= 0.97)
     {
-        if(dFeatures[8] <= 0.03)
+        if(dFeatures[1] <= 0.21)
         {
-            if(dFeatures[4] <= 71.50)
+            if(dFeatures[0] <= 0.12)
             {
-                if(dFeatures[0] <= 0.10)
+                if(dFeatures[0] <= 0.07)
                 {
-                    if(dFeatures[1] <= 0.22)
+                    if(dFeatures[0] <= 0.06)
                     {
-                        if(dFeatures[0] <= 0.06)
+                        if(dFeatures[4] <= 0.66)
                         {
-                            if(dFeatures[9] <= 0.28)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            if(dFeatures[0] <= 0.07)
+                            if(dFeatures[3] <= 4.50)
                             {
-                                return 0;
+                                if(dFeatures[0] <= 0.02)
+                                {
+                                    if(dFeatures[4] <= 0.84)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[4] <= 0.91)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
                             }
                             else
                             {
-                                return 1;
+                                if(dFeatures[1] <= 0.00)
+                                {
+                                    if(dFeatures[2] <= 13.50)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
                             }
                         }
                     }
                     else
                     {
-                        return 1;
+                        return 0;
                     }
                 }
                 else
                 {
-                    if(dFeatures[2] <= 0.01)
+                    return 1;
+                }
+            }
+            else
+            {
+                if(dFeatures[1] <= 0.01)
+                {
+                    if(dFeatures[2] <= 72.00)
                     {
                         if(dFeatures[0] <= 2.60)
                         {
-                            if(dFeatures[1] <= 6.27)
+                            if(dFeatures[0] <= 1.27)
                             {
-                                return 1;
+                                if(dFeatures[5] <= 0.09)
+                                {
+                                    if(dFeatures[3] <= 24.00)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 1.13)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
                             }
                             else
                             {
-                                return 0;
+                                if(dFeatures[5] <= 0.03)
+                                {
+                                    if(dFeatures[4] <= 0.84)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[4] <= 0.72)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
                             }
                         }
                         else
                         {
                             if(dFeatures[0] <= 25.04)
                             {
-                                return 1;
+                                if(dFeatures[2] <= 50.50)
+                                {
+                                    if(dFeatures[4] <= 0.47)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
                             }
                             else
                             {
-                                return 1;
+                                if(dFeatures[0] <= 26.97)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    if(dFeatures[4] <= 0.12)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
                             }
                         }
                     }
                     else
                     {
-                        if(dFeatures[3] <= 0.06)
+                        return 0;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[0] <= 142.39)
+                    {
+                        if(dFeatures[1] <= 0.01)
                         {
-                            if(dFeatures[6] <= 0.34)
+                            return 0;
+                        }
+                        else
+                        {
+                            if(dFeatures[0] <= 0.32)
+                            {
+                                if(dFeatures[0] <= 0.24)
+                                {
+                                    if(dFeatures[5] <= 0.09)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.09)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[3] <= 16.50)
+                                {
+                                    if(dFeatures[4] <= 0.66)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 10.45)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[1] <= 0.10)
+                        {
+                            if(dFeatures[1] <= 0.09)
                             {
                                 return 1;
                             }
@@ -7054,107 +7233,229 @@ if(dFeatures[7] <= 0.16)
                         }
                         else
                         {
-                            if(dFeatures[3] <= 0.13)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 1;
                         }
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[9] <= 0.53)
-                {
-                    return 0;
-                }
-                else
-                {
-                    if(dFeatures[4] <= 79.50)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
                     }
                 }
             }
         }
         else
         {
-            if(dFeatures[1] <= 0.60)
+            if(dFeatures[4] <= 0.84)
             {
-                if(dFeatures[2] <= 0.53)
+                if(dFeatures[0] <= 233.21)
                 {
-                    if(dFeatures[4] <= 8.00)
+                    if(dFeatures[0] <= 4.07)
                     {
-                        return 0;
+                        if(dFeatures[1] <= 0.59)
+                        {
+                            if(dFeatures[0] <= 3.71)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 1;
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[1] <= 1.32)
+                            {
+                                return 1;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
                     }
                     else
                     {
-                        return 1;
+                        if(dFeatures[1] <= 0.35)
+                        {
+                            if(dFeatures[1] <= 0.33)
+                            {
+                                if(dFeatures[0] <= 8.47)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
+                            }
+                            else
+                            {
+                                return 1;
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[1] <= 0.92)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                if(dFeatures[4] <= 0.78)
+                                {
+                                    if(dFeatures[1] <= 0.97)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                                else
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
                     }
                 }
                 else
                 {
-                    return 1;
+                    if(dFeatures[0] <= 332.32)
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
             }
             else
             {
-                if(dFeatures[3] <= 0.06)
+                if(dFeatures[2] <= 3.50)
                 {
-                    return 1;
-                }
-                else
-                {
-                    if(dFeatures[6] <= 0.91)
+                    if(dFeatures[0] <= 109.34)
                     {
-                        if(dFeatures[2] <= 2.01)
+                        if(dFeatures[0] <= 1.84)
                         {
-                            if(dFeatures[1] <= 21.99)
+                            if(dFeatures[0] <= 0.39)
                             {
-                                return 1;
+                                if(dFeatures[0] <= 0.35)
+                                {
+                                    if(dFeatures[4] <= 0.91)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
                             }
                             else
                             {
-                                return 1;
+                                if(dFeatures[1] <= 0.64)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    if(dFeatures[5] <= 0.09)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
                             }
                         }
                         else
                         {
-                            if(dFeatures[0] <= 7.15)
+                            if(dFeatures[0] <= 3.97)
                             {
-                                return 0;
+                                if(dFeatures[0] <= 2.81)
+                                {
+                                    if(dFeatures[1] <= 0.57)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
                             }
                             else
                             {
-                                return 1;
+                                if(dFeatures[0] <= 11.26)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 1.24)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
                             }
                         }
                     }
                     else
                     {
-                        if(dFeatures[3] <= 0.22)
+                        if(dFeatures[1] <= 0.51)
                         {
-                            return 1;
+                            return 0;
                         }
                         else
                         {
-                            if(dFeatures[2] <= 0.12)
+                            return 1;
+                        }
+                    }
+                }
+                else
+                {
+                    if(dFeatures[0] <= 2.74)
+                    {
+                        if(dFeatures[3] <= 8.00)
+                        {
+                            if(dFeatures[1] <= 0.46)
                             {
-                                return 0;
+                                if(dFeatures[4] <= 0.91)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
                             }
                             else
                             {
                                 return 1;
                             }
                         }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        return 0;
                     }
                 }
             }
@@ -7162,11 +7463,11 @@ if(dFeatures[7] <= 0.16)
     }
     else
     {
-        if(dFeatures[1] <= 5.21)
+        if(dFeatures[0] <= 5.26)
         {
-            if(dFeatures[1] <= 0.22)
+            if(dFeatures[0] <= 0.10)
             {
-                if(dFeatures[0] <= 0.03)
+                if(dFeatures[1] <= 0.16)
                 {
                     return 1;
                 }
@@ -7179,18 +7480,11 @@ if(dFeatures[7] <= 0.16)
             {
                 if(dFeatures[0] <= 0.13)
                 {
-                    if(dFeatures[1] <= 0.26)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
                 else
                 {
-                    if(dFeatures[3] <= 0.00)
+                    if(dFeatures[1] <= 0.00)
                     {
                         if(dFeatures[0] <= 0.68)
                         {
@@ -7217,15 +7511,15 @@ if(dFeatures[7] <= 0.16)
         }
         else
         {
-            if(dFeatures[1] <= 28.65)
+            if(dFeatures[0] <= 15.03)
             {
-                if(dFeatures[0] <= 5.26)
+                if(dFeatures[1] <= 0.12)
                 {
-                    return 1;
+                    return 0;
                 }
                 else
                 {
-                    return 0;
+                    return 1;
                 }
             }
             else
@@ -7237,69 +7531,62 @@ if(dFeatures[7] <= 0.16)
 }
 else
 {
-    if(dFeatures[8] <= 0.03)
+    if(dFeatures[4] <= 0.47)
     {
-        if(dFeatures[7] <= 0.41)
+        if(dFeatures[1] <= 0.00)
         {
-            if(dFeatures[1] <= 1.73)
+            if(dFeatures[3] <= 5.50)
             {
-                if(dFeatures[0] <= 0.11)
+                if(dFeatures[0] <= 2.02)
                 {
-                    if(dFeatures[7] <= 0.34)
+                    if(dFeatures[0] <= 0.41)
                     {
-                        if(dFeatures[4] <= 17.50)
-                        {
-                            if(dFeatures[6] <= 0.78)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 1;
-                        }
+                        return 1;
                     }
                     else
                     {
-                        return 1;
+                        return 0;
                     }
                 }
                 else
                 {
-                    if(dFeatures[2] <= 0.03)
+                    if(dFeatures[3] <= 2.50)
                     {
-                        if(dFeatures[2] <= 0.00)
+                        if(dFeatures[0] <= 2.97)
                         {
-                            if(dFeatures[0] <= 1.86)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            return 0;
+                            if(dFeatures[1] <= 0.00)
+                            {
+                                if(dFeatures[2] <= 2.00)
+                                {
+                                    if(dFeatures[5] <= 0.31)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                                else
+                                {
+                                    return 1;
+                                }
+                            }
+                            else
+                            {
+                                return 1;
+                            }
                         }
                     }
                     else
                     {
-                        if(dFeatures[2] <= 2.37)
+                        if(dFeatures[1] <= 0.00)
                         {
-                            if(dFeatures[3] <= 0.95)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 1;
                         }
                         else
                         {
@@ -7310,115 +7597,73 @@ else
             }
             else
             {
-                if(dFeatures[2] <= 0.27)
+                if(dFeatures[3] <= 14.00)
                 {
-                    if(dFeatures[3] <= 0.01)
-                    {
-                        if(dFeatures[1] <= 2.30)
-                        {
-                            if(dFeatures[9] <= 0.03)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 5.05)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[0] <= 5.85)
-                        {
-                            if(dFeatures[3] <= 0.04)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[0] <= 292.44)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
+                    return 1;
                 }
                 else
                 {
-                    if(dFeatures[7] <= 0.28)
+                    if(dFeatures[3] <= 32.50)
                     {
-                        if(dFeatures[1] <= 12.25)
+                        if(dFeatures[0] <= 131.31)
                         {
-                            if(dFeatures[5] <= 2.50)
+                            if(dFeatures[0] <= 0.65)
                             {
                                 return 1;
                             }
                             else
                             {
-                                return 0;
+                                if(dFeatures[3] <= 20.50)
+                                {
+                                    if(dFeatures[1] <= 0.00)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[2] <= 77.00)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
                             }
                         }
                         else
                         {
-                            if(dFeatures[6] <= 0.59)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                     }
                     else
                     {
-                        if(dFeatures[5] <= 16.50)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
+                        return 0;
                     }
                 }
             }
         }
         else
         {
-            if(dFeatures[2] <= 0.00)
+            if(dFeatures[1] <= 1.38)
             {
-                if(dFeatures[1] <= 2.23)
+                if(dFeatures[0] <= 49.37)
                 {
-                    if(dFeatures[0] <= 0.59)
+                    if(dFeatures[4] <= 0.28)
                     {
-                        return 1;
-                    }
-                    else
-                    {
-                        if(dFeatures[4] <= 29.00)
+                        if(dFeatures[0] <= 0.59)
                         {
-                            if(dFeatures[3] <= 0.00)
+                            return 1;
+                        }
+                        else
+                        {
+                            if(dFeatures[1] <= 0.01)
                             {
                                 return 1;
                             }
@@ -7427,54 +7672,243 @@ else
                                 return 1;
                             }
                         }
+                    }
+                    else
+                    {
+                        if(dFeatures[0] <= 4.50)
+                        {
+                            if(dFeatures[0] <= 3.69)
+                            {
+                                if(dFeatures[5] <= 0.59)
+                                {
+                                    if(dFeatures[0] <= 2.34)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.01)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 3.84)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.01)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                        }
                         else
                         {
-                            return 1;
+                            if(dFeatures[4] <= 0.34)
+                            {
+                                if(dFeatures[1] <= 0.91)
+                                {
+                                    if(dFeatures[1] <= 0.07)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 1.14)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[5] <= 0.34)
+                                {
+                                    if(dFeatures[1] <= 0.44)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 41.13)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
                 else
                 {
-                    if(dFeatures[0] <= 7.44)
+                    if(dFeatures[1] <= 0.10)
                     {
-                        if(dFeatures[2] <= 0.00)
+                        if(dFeatures[5] <= 0.53)
                         {
-                            if(dFeatures[2] <= 0.00)
+                            if(dFeatures[2] <= 22.50)
                             {
-                                return 1;
+                                if(dFeatures[5] <= 0.41)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    return 1;
+                                }
                             }
                             else
                             {
-                                return 0;
+                                return 1;
                             }
                         }
                         else
                         {
-                            if(dFeatures[1] <= 5.55)
+                            if(dFeatures[4] <= 0.22)
                             {
-                                return 1;
+                                return 0;
                             }
                             else
                             {
-                                return 1;
+                                if(dFeatures[0] <= 126.12)
+                                {
+                                    if(dFeatures[1] <= 0.02)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.09)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
                             }
                         }
                     }
                     else
                     {
-                        if(dFeatures[1] <= 39.04)
+                        if(dFeatures[0] <= 340.25)
                         {
-                            return 0;
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 0.00)
+                            if(dFeatures[4] <= 0.16)
                             {
-                                return 0;
+                                if(dFeatures[5] <= 0.53)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    if(dFeatures[5] <= 0.59)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
                             }
                             else
                             {
+                                if(dFeatures[2] <= 31.50)
+                                {
+                                    if(dFeatures[1] <= 1.36)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[3] <= 25.00)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[0] <= 357.51)
+                            {
                                 return 1;
+                            }
+                            else
+                            {
+                                if(dFeatures[1] <= 0.55)
+                                {
+                                    if(dFeatures[3] <= 16.50)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.62)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
                             }
                         }
                     }
@@ -7482,15 +7916,36 @@ else
             }
             else
             {
-                if(dFeatures[2] <= 1.37)
+                if(dFeatures[2] <= 24.50)
                 {
-                    if(dFeatures[7] <= 0.72)
+                    if(dFeatures[3] <= 23.50)
                     {
-                        if(dFeatures[3] <= 1.02)
+                        if(dFeatures[1] <= 2.70)
                         {
-                            if(dFeatures[4] <= 14.50)
+                            if(dFeatures[1] <= 2.67)
                             {
-                                return 1;
+                                if(dFeatures[5] <= 0.91)
+                                {
+                                    if(dFeatures[1] <= 2.27)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 238.41)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
                             }
                             else
                             {
@@ -7499,94 +7954,154 @@ else
                         }
                         else
                         {
-                            if(dFeatures[2] <= 0.55)
+                            if(dFeatures[2] <= 23.50)
                             {
-                                return 1;
+                                if(dFeatures[1] <= 4.20)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 4.31)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
                             }
                             else
                             {
-                                return 0;
+                                if(dFeatures[0] <= 98.26)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
                             }
                         }
                     }
                     else
                     {
-                        if(dFeatures[2] <= 0.83)
-                        {
-                            if(dFeatures[2] <= 0.02)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 0.97)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[2] <= 1.70)
-                    {
-                        if(dFeatures[3] <= 4.46)
+                        if(dFeatures[0] <= 191.43)
                         {
                             return 0;
                         }
                         else
                         {
-                            if(dFeatures[5] <= 3.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[3] <= 2.50)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
                             return 1;
                         }
                     }
+                }
+                else
+                {
+                    return 0;
                 }
             }
         }
     }
     else
     {
-        if(dFeatures[8] <= 0.09)
+        if(dFeatures[0] <= 0.99)
         {
-            if(dFeatures[3] <= 1.84)
+            if(dFeatures[1] <= 0.17)
             {
-                if(dFeatures[9] <= 0.22)
+                if(dFeatures[0] <= 0.91)
                 {
-                    if(dFeatures[5] <= 5.50)
+                    if(dFeatures[4] <= 0.78)
                     {
-                        if(dFeatures[2] <= 0.00)
+                        if(dFeatures[4] <= 0.72)
                         {
-                            return 1;
+                            if(dFeatures[0] <= 0.88)
+                            {
+                                if(dFeatures[1] <= 0.00)
+                                {
+                                    if(dFeatures[0] <= 0.64)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.03)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                return 0;
+                            }
                         }
                         else
                         {
-                            if(dFeatures[2] <= 2.47)
+                            if(dFeatures[0] <= 0.63)
+                            {
+                                if(dFeatures[1] <= 0.04)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.06)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 0.72)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[3] <= 3.50)
+                        {
+                            if(dFeatures[0] <= 0.67)
+                            {
+                                return 1;
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 0.80)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[0] <= 0.30)
                             {
                                 return 0;
                             }
@@ -7594,84 +8109,6 @@ else
                             {
                                 return 1;
                             }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[3] <= 1.80)
-                        {
-                            if(dFeatures[3] <= 0.00)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[3] <= 0.45)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        if(dFeatures[9] <= 0.28)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 0.78)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[1] <= 6490.49)
-                {
-                    if(dFeatures[7] <= 0.47)
-                    {
-                        if(dFeatures[2] <= 3.85)
-                        {
-                            if(dFeatures[1] <= 1380.27)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[5] <= 23.50)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return 1;
                         }
                     }
                 }
@@ -7680,20 +8117,28 @@ else
                     return 1;
                 }
             }
-        }
-        else
-        {
-            if(dFeatures[9] <= 0.34)
+            else
             {
-                if(dFeatures[6] <= 0.66)
+                if(dFeatures[1] <= 0.55)
                 {
-                    if(dFeatures[4] <= 11.50)
+                    if(dFeatures[4] <= 0.59)
                     {
-                        if(dFeatures[1] <= 138.22)
+                        if(dFeatures[4] <= 0.53)
                         {
-                            if(dFeatures[5] <= 6.50)
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[0] <= 0.09)
+                        {
+                            if(dFeatures[5] <= 0.22)
                             {
-                                return 1;
+                                return 0;
                             }
                             else
                             {
@@ -7702,9 +8147,30 @@ else
                         }
                         else
                         {
-                            if(dFeatures[0] <= 69.01)
+                            if(dFeatures[2] <= 12.00)
                             {
-                                return 1;
+                                if(dFeatures[0] <= 0.58)
+                                {
+                                    if(dFeatures[1] <= 0.46)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 0.73)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
                             }
                             else
                             {
@@ -7712,33 +8178,533 @@ else
                             }
                         }
                     }
+                }
+                else
+                {
+                    if(dFeatures[0] <= 0.71)
+                    {
+                        if(dFeatures[0] <= 0.33)
+                        {
+                            if(dFeatures[2] <= 3.50)
+                            {
+                                if(dFeatures[0] <= 0.13)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 0.22)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 0.27)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[0] <= 0.50)
+                            {
+                                if(dFeatures[5] <= 0.22)
+                                {
+                                    if(dFeatures[1] <= 0.71)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    return 1;
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 0.69)
+                                {
+                                    if(dFeatures[3] <= 2.00)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    return 1;
+                                }
+                            }
+                        }
+                    }
                     else
                     {
-                        if(dFeatures[6] <= 0.41)
+                        if(dFeatures[5] <= 0.25)
                         {
                             return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            if(dFeatures[1] <= 0.27)
+            {
+                if(dFeatures[1] <= 0.00)
+                {
+                    if(dFeatures[2] <= 26.00)
+                    {
+                        if(dFeatures[0] <= 179.46)
+                        {
+                            if(dFeatures[0] <= 104.88)
+                            {
+                                if(dFeatures[5] <= 0.41)
+                                {
+                                    if(dFeatures[5] <= 0.28)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 6.40)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                return 0;
+                            }
                         }
                         else
                         {
                             return 1;
                         }
                     }
-                }
-                else
-                {
-                    if(dFeatures[5] <= 19.00)
-                    {
-                        return 0;
-                    }
                     else
                     {
                         return 1;
                     }
                 }
+                else
+                {
+                    if(dFeatures[0] <= 12.21)
+                    {
+                        if(dFeatures[1] <= 0.01)
+                        {
+                            if(dFeatures[0] <= 2.92)
+                            {
+                                if(dFeatures[0] <= 1.68)
+                                {
+                                    if(dFeatures[0] <= 1.37)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.01)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 4.48)
+                                {
+                                    if(dFeatures[0] <= 3.29)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 5.55)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[0] <= 2.59)
+                            {
+                                if(dFeatures[5] <= 0.47)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 1.68)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[4] <= 0.53)
+                                {
+                                    if(dFeatures[2] <= 23.00)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 9.74)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[2] <= 0.50)
+                        {
+                            if(dFeatures[0] <= 66.55)
+                            {
+                                if(dFeatures[1] <= 0.12)
+                                {
+                                    if(dFeatures[4] <= 0.59)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.24)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 109.01)
+                                {
+                                    if(dFeatures[1] <= 0.24)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 497.26)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[2] <= 10.50)
+                            {
+                                if(dFeatures[1] <= 0.21)
+                                {
+                                    if(dFeatures[4] <= 0.78)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 24.33)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[3] <= 16.50)
+                                {
+                                    if(dFeatures[4] <= 0.66)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[1] <= 0.05)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
             else
             {
-                return 1;
+                if(dFeatures[3] <= 3.50)
+                {
+                    if(dFeatures[4] <= 0.78)
+                    {
+                        if(dFeatures[2] <= 5.00)
+                        {
+                            if(dFeatures[1] <= 3.31)
+                            {
+                                if(dFeatures[1] <= 3.20)
+                                {
+                                    if(dFeatures[1] <= 0.29)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    return 1;
+                                }
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[0] <= 4.43)
+                        {
+                            if(dFeatures[0] <= 1.05)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 1;
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[1] <= 0.63)
+                            {
+                                if(dFeatures[0] <= 8.44)
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 27.35)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 16.80)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 19.57)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    if(dFeatures[0] <= 3.95)
+                    {
+                        if(dFeatures[2] <= 17.50)
+                        {
+                            if(dFeatures[2] <= 4.50)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                if(dFeatures[1] <= 2.08)
+                                {
+                                    if(dFeatures[0] <= 2.62)
+                                    {
+                                        return 0;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    return 0;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[0] <= 777.24)
+                        {
+                            if(dFeatures[1] <= 0.30)
+                            {
+                                if(dFeatures[3] <= 14.00)
+                                {
+                                    return 0;
+                                }
+                                else
+                                {
+                                    return 1;
+                                }
+                            }
+                            else
+                            {
+                                if(dFeatures[0] <= 35.87)
+                                {
+                                    if(dFeatures[5] <= 0.22)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 1;
+                                    }
+                                }
+                                else
+                                {
+                                    if(dFeatures[0] <= 36.49)
+                                    {
+                                        return 1;
+                                    }
+                                    else
+                                    {
+                                        return 0;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            return 1;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -7747,181 +8713,181 @@ else
 
 UInt TTrEngine::xdecide_depth0_QP37_v3(Double *dFeatures)
 {
-if(dFeatures[7] <= 0.09)
+if(dFeatures[5] <= 0.09)
 {
-    if(dFeatures[6] <= 0.97)
+    if(dFeatures[4] <= 0.97)
     {
-        if(dFeatures[8] <= 0.09)
+        if(dFeatures[0] <= 1.01)
         {
-            if(dFeatures[1] <= 3.98)
+            if(dFeatures[0] <= 0.50)
             {
-                if(dFeatures[5] <= 41.00)
+                if(dFeatures[0] <= 0.32)
                 {
-                    if(dFeatures[2] <= 0.08)
+                    if(dFeatures[1] <= 0.11)
                     {
-                        if(dFeatures[2] <= 0.07)
+                        if(dFeatures[1] <= 0.07)
                         {
-                            if(dFeatures[2] <= 0.00)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            if(dFeatures[1] <= 0.28)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 0;
                         }
                     }
                     else
                     {
-                        if(dFeatures[1] <= 2.74)
+                        if(dFeatures[1] <= 0.27)
                         {
-                            if(dFeatures[0] <= 0.10)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 3.06)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            else
-            {
-                if(dFeatures[0] <= 1.64)
-                {
-                    if(dFeatures[3] <= 1.64)
-                    {
-                        if(dFeatures[5] <= 8.00)
-                        {
-                            if(dFeatures[1] <= 4.91)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
                             return 1;
                         }
                     }
+                }
+                else
+                {
+                    if(dFeatures[4] <= 0.91)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        if(dFeatures[1] <= 0.02)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if(dFeatures[0] <= 0.92)
+                {
+                    return 1;
+                }
+                else
+                {
+                    if(dFeatures[0] <= 0.94)
+                    {
+                        return 0;
+                    }
                     else
                     {
                         return 1;
                     }
                 }
-                else
+            }
+        }
+        else
+        {
+            if(dFeatures[1] <= 0.00)
+            {
+                if(dFeatures[2] <= 68.00)
                 {
-                    if(dFeatures[2] <= 1.97)
+                    if(dFeatures[0] <= 1.52)
                     {
-                        if(dFeatures[2] <= 0.00)
+                        if(dFeatures[0] <= 1.48)
                         {
-                            if(dFeatures[9] <= 0.53)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            if(dFeatures[1] <= 11.88)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 0;
                         }
                     }
                     else
                     {
+                        if(dFeatures[0] <= 13.33)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                if(dFeatures[1] <= 0.98)
+                {
+                    if(dFeatures[0] <= 52.72)
+                    {
+                        if(dFeatures[0] <= 49.10)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[0] <= 1124.78)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
+                else
+                {
+                    if(dFeatures[1] <= 1.67)
+                    {
                         return 0;
+                    }
+                    else
+                    {
+                        if(dFeatures[1] <= 1.97)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
                 }
             }
         }
-        else
-        {
-            return 0;
-        }
     }
     else
     {
-        if(dFeatures[1] <= 0.22)
+        if(dFeatures[0] <= 0.17)
         {
             if(dFeatures[0] <= 0.03)
             {
-                return 0;
+                return 1;
             }
             else
             {
-                return 0;
+                return 1;
             }
         }
         else
         {
-            if(dFeatures[2] <= 0.00)
+            if(dFeatures[0] <= 0.77)
             {
-                if(dFeatures[2] <= 0.00)
+                if(dFeatures[0] <= 0.76)
                 {
-                    if(dFeatures[0] <= 13.39)
+                    if(dFeatures[0] <= 0.73)
                     {
-                        if(dFeatures[0] <= 5.74)
-                        {
-                            if(dFeatures[0] <= 0.87)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 19.94)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
+                        return 1;
                     }
                     else
                     {
@@ -7935,20 +8901,13 @@ if(dFeatures[7] <= 0.09)
             }
             else
             {
-                if(dFeatures[0] <= 0.77)
+                if(dFeatures[1] <= 0.00)
                 {
-                    if(dFeatures[0] <= 0.74)
+                    if(dFeatures[1] <= 0.00)
                     {
-                        if(dFeatures[3] <= 0.31)
+                        if(dFeatures[0] <= 13.39)
                         {
-                            if(dFeatures[2] <= 0.11)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
@@ -7970,26 +8929,19 @@ if(dFeatures[7] <= 0.09)
 }
 else
 {
-    if(dFeatures[6] <= 0.53)
+    if(dFeatures[4] <= 0.53)
     {
-        if(dFeatures[8] <= 0.03)
+        if(dFeatures[5] <= 0.59)
         {
-            if(dFeatures[7] <= 0.59)
+            if(dFeatures[1] <= 0.95)
             {
-                if(dFeatures[2] <= 0.96)
+                if(dFeatures[0] <= 5.28)
                 {
-                    if(dFeatures[1] <= 4.10)
+                    if(dFeatures[1] <= 0.01)
                     {
-                        if(dFeatures[2] <= 0.83)
+                        if(dFeatures[0] <= 0.96)
                         {
-                            if(dFeatures[3] <= 0.01)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 0;
                         }
                         else
                         {
@@ -7998,44 +8950,23 @@ else
                     }
                     else
                     {
-                        if(dFeatures[2] <= 0.03)
+                        if(dFeatures[0] <= 0.82)
                         {
-                            if(dFeatures[0] <= 54.14)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            if(dFeatures[0] <= 11.12)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 0;
                         }
                     }
                 }
                 else
                 {
-                    if(dFeatures[7] <= 0.34)
+                    if(dFeatures[1] <= 0.30)
                     {
-                        if(dFeatures[0] <= 275.19)
+                        if(dFeatures[0] <= 5.98)
                         {
-                            if(dFeatures[2] <= 1.46)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 1;
                         }
                         else
                         {
@@ -8044,44 +8975,37 @@ else
                     }
                     else
                     {
-                        if(dFeatures[6] <= 0.47)
+                        if(dFeatures[1] <= 0.72)
                         {
-                            if(dFeatures[0] <= 2139.18)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 0;
                         }
                         else
                         {
-                            if(dFeatures[3] <= 1.80)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                     }
                 }
             }
             else
             {
-                if(dFeatures[1] <= 1751.00)
+                if(dFeatures[2] <= 38.50)
                 {
-                    if(dFeatures[2] <= 0.00)
+                    if(dFeatures[4] <= 0.47)
                     {
-                        return 1;
+                        if(dFeatures[5] <= 0.34)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
                     else
                     {
-                        if(dFeatures[0] <= 1.49)
+                        if(dFeatures[0] <= 1.69)
                         {
-                            return 0;
+                            return 1;
                         }
                         else
                         {
@@ -8091,53 +9015,57 @@ else
                 }
                 else
                 {
-                    if(dFeatures[2] <= 1.59)
+                    if(dFeatures[0] <= 533.45)
                     {
-                        if(dFeatures[7] <= 0.72)
+                        if(dFeatures[4] <= 0.47)
                         {
-                            return 1;
+                            return 0;
                         }
                         else
                         {
-                            if(dFeatures[3] <= 1.69)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                     }
                     else
                     {
-                        return 0;
+                        return 1;
                     }
                 }
             }
         }
         else
         {
-            if(dFeatures[4] <= 56.50)
+            if(dFeatures[4] <= 0.28)
             {
-                if(dFeatures[2] <= 0.41)
+                if(dFeatures[0] <= 5945.94)
                 {
-                    if(dFeatures[2] <= 0.39)
+                    if(dFeatures[5] <= 0.66)
                     {
-                        if(dFeatures[9] <= 0.22)
+                        return 1;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+            else
+            {
+                if(dFeatures[3] <= 10.00)
+                {
+                    if(dFeatures[0] <= 1126.75)
+                    {
+                        if(dFeatures[0] <= 0.85)
                         {
-                            if(dFeatures[5] <= 1.00)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            return 1;
+                            return 0;
                         }
                     }
                     else
@@ -8147,84 +9075,38 @@ else
                 }
                 else
                 {
-                    if(dFeatures[4] <= 7.50)
+                    if(dFeatures[0] <= 5.45)
                     {
-                        if(dFeatures[0] <= 1074.91)
-                        {
-                            if(dFeatures[0] <= 49.16)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[7] <= 0.72)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
+                        return 0;
                     }
                     else
                     {
-                        if(dFeatures[3] <= 8.68)
+                        if(dFeatures[1] <= 1.42)
                         {
-                            if(dFeatures[5] <= 6.50)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            if(dFeatures[0] <= 224.77)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 0;
                         }
                     }
                 }
-            }
-            else
-            {
-                return 1;
             }
         }
     }
     else
     {
-        if(dFeatures[2] <= 0.05)
+        if(dFeatures[1] <= 0.05)
         {
-            if(dFeatures[7] <= 0.34)
+            if(dFeatures[5] <= 0.34)
             {
-                if(dFeatures[3] <= 0.01)
+                if(dFeatures[2] <= 46.00)
                 {
-                    if(dFeatures[2] <= 0.00)
+                    if(dFeatures[1] <= 0.04)
                     {
-                        if(dFeatures[3] <= 0.01)
+                        if(dFeatures[1] <= 0.03)
                         {
-                            if(dFeatures[2] <= 0.00)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
@@ -8233,175 +9115,70 @@ else
                     }
                     else
                     {
-                        if(dFeatures[2] <= 0.00)
+                        if(dFeatures[0] <= 6.52)
                         {
-                            if(dFeatures[1] <= 0.91)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 0;
                         }
                         else
                         {
-                            if(dFeatures[2] <= 0.01)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                     }
                 }
                 else
                 {
-                    if(dFeatures[1] <= 3.14)
-                    {
-                        if(dFeatures[1] <= 2.29)
-                        {
-                            if(dFeatures[1] <= 0.78)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            return 0;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[2] <= 0.04)
-                        {
-                            if(dFeatures[2] <= 0.04)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 13.20)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
+                    return 0;
                 }
             }
             else
             {
-                if(dFeatures[5] <= 1.00)
+                if(dFeatures[3] <= 1.00)
                 {
                     if(dFeatures[0] <= 4.03)
                     {
-                        if(dFeatures[2] <= 0.00)
+                        if(dFeatures[1] <= 0.00)
                         {
-                            if(dFeatures[0] <= 2.69)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            if(dFeatures[0] <= 0.84)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 0;
                         }
                     }
                     else
                     {
                         if(dFeatures[0] <= 32.74)
                         {
-                            if(dFeatures[0] <= 17.17)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
-                            if(dFeatures[3] <= 0.01)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 1;
                         }
                     }
                 }
                 else
                 {
-                    if(dFeatures[3] <= 0.01)
+                    if(dFeatures[1] <= 0.01)
                     {
-                        if(dFeatures[2] <= 0.00)
-                        {
-                            if(dFeatures[9] <= 0.03)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 3.64)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[2] <= 0.04)
+                        if(dFeatures[1] <= 0.00)
                         {
                             return 1;
                         }
                         else
                         {
-                            if(dFeatures[0] <= 10.25)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[1] <= 0.04)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
                         }
                     }
                 }
@@ -8411,61 +9188,40 @@ else
         {
             if(dFeatures[0] <= 1.03)
             {
-                if(dFeatures[2] <= 0.59)
+                if(dFeatures[1] <= 0.59)
                 {
-                    if(dFeatures[3] <= 0.73)
+                    if(dFeatures[1] <= 0.43)
                     {
-                        if(dFeatures[1] <= 1.93)
+                        if(dFeatures[3] <= 12.50)
                         {
-                            if(dFeatures[8] <= 0.03)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[0] <= 0.87)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[7] <= 0.22)
-                        {
-                            if(dFeatures[4] <= 3.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
+                            return 1;
                         }
                         else
                         {
                             return 0;
                         }
                     }
+                    else
+                    {
+                        if(dFeatures[0] <= 0.17)
+                        {
+                            return 0;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
                 }
                 else
                 {
-                    if(dFeatures[2] <= 1.88)
+                    if(dFeatures[1] <= 1.88)
                     {
                         return 1;
                     }
                     else
                     {
-                        if(dFeatures[4] <= 18.50)
+                        if(dFeatures[2] <= 18.50)
                         {
                             return 0;
                         }
@@ -8478,102 +9234,53 @@ else
             }
             else
             {
-                if(dFeatures[8] <= 0.03)
+                if(dFeatures[4] <= 0.66)
                 {
-                    if(dFeatures[7] <= 0.34)
+                    if(dFeatures[5] <= 0.22)
                     {
-                        if(dFeatures[1] <= 87.70)
-                        {
-                            if(dFeatures[1] <= 35.22)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[5] <= 14.50)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[0] <= 7.20)
-                        {
-                            if(dFeatures[2] <= 0.92)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 9.25)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[1] <= 247.82)
-                    {
-                        if(dFeatures[4] <= 5.50)
-                        {
-                            if(dFeatures[3] <= 2.97)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[8] <= 0.16)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[3] <= 0.82)
+                        if(dFeatures[2] <= 49.00)
                         {
                             return 1;
                         }
                         else
                         {
-                            if(dFeatures[0] <= 105.73)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                                }
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[1] <= 3.41)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
+                    }
+                }
+                else
+                {
+                    if(dFeatures[2] <= 2.50)
+                    {
+                        if(dFeatures[1] <= 2.11)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[2] <= 14.00)
+                        {
+                            return 0;
+                        }
+                        else
+                        {
+                            return 1;
                             }
                         }
                     }
@@ -8585,1556 +9292,13 @@ else
 
 UInt TTrEngine::xdecide_depth1_QP22_v3(Double *dFeatures)
 {
-if(dFeatures[5] <= 38.50)
+if(dFeatures[1] <= 38.50)
 {
-    if(dFeatures[8] <= 0.12)
+    if(dFeatures[1] <= 20.50)
     {
-        if(dFeatures[7] <= 0.62)
+        if(dFeatures[1] <= 10.50)
         {
-            if(dFeatures[4] <= 9.50)
-            {
-                if(dFeatures[6] <= 0.12)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            else
-            {
-                if(dFeatures[7] <= 0.38)
-                {
-                    if(dFeatures[5] <= 37.00)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[3] <= 2.34)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if(dFeatures[5] <= 21.50)
-            {
-                if(dFeatures[6] <= 0.12)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            else
-            {
-                if(dFeatures[0] <= 5.89)
-                {
-                    if(dFeatures[0] <= 0.13)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[2] <= 3.43)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-        }
-    }
-    else
-    {
-        if(dFeatures[5] <= 18.50)
-        {
-            if(dFeatures[6] <= 0.12)
-            {
-                if(dFeatures[4] <= 0.50)
-                {
-                    if(dFeatures[2] <= 4.85)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[0] <= 53.95)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[4] <= 13.50)
-                {
-                    if(dFeatures[3] <= 0.00)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[4] <= 32.50)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if(dFeatures[0] <= 10.87)
-            {
-                if(dFeatures[4] <= 76.50)
-                {
-                    if(dFeatures[1] <= 10.61)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[1] <= 0.56)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[9] <= 0.12)
-                {
-                    if(dFeatures[4] <= 48.50)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[5] <= 30.50)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-        }
-    }
-}
-else
-{
-    if(dFeatures[5] <= 53.50)
-    {
-        if(dFeatures[0] <= 8.82)
-        {
-            if(dFeatures[7] <= 0.88)
-            {
-                if(dFeatures[5] <= 51.50)
-                {
-                    if(dFeatures[2] <= 0.00)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[2] <= 0.00)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[2] <= 0.00)
-                {
-                    return 1;
-                }
-                else
-                {
-                    if(dFeatures[1] <= 17.71)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if(dFeatures[8] <= 0.12)
-            {
-                if(dFeatures[5] <= 43.50)
-                {
-                    if(dFeatures[1] <= 205.97)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[1] <= 180.29)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[3] <= 6.75)
-                {
-                    if(dFeatures[0] <= 32.41)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[2] <= 9.21)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-            }
-        }
-    }
-    else
-    {
-        if(dFeatures[1] <= 7.31)
-        {
-            if(dFeatures[2] <= 0.26)
-            {
-                if(dFeatures[4] <= 122.50)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            else
-            {
-                if(dFeatures[5] <= 65.50)
-                {
-                    if(dFeatures[1] <= 0.55)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[1] <= 1.10)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-        }
-        else
-        {
-            if(dFeatures[3] <= 0.01)
-            {
-                if(dFeatures[1] <= 14.88)
-                {
-                    if(dFeatures[0] <= 5.61)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[0] <= 12.69)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[9] <= 0.38)
-                {
-                    if(dFeatures[1] <= 363.66)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[8] <= 0.12)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-UInt TTrEngine::xdecide_depth1_QP27_v3(Double *dFeatures)
-{
-if(dFeatures[8] <= 0.12)
-{
-    if(dFeatures[3] <= 0.00)
-    {
-        if(dFeatures[7] <= 0.12)
-        {
-            if(dFeatures[5] <= 20.50)
-            {
-                if(dFeatures[0] <= 430.45)
-                {
-                    if(dFeatures[4] <= 16.50)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[9] <= 0.12)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-            }
-            else
-            {
-                return 0;
-            }
-        }
-        else
-        {
-            if(dFeatures[7] <= 0.62)
-            {
-                if(dFeatures[0] <= 28.01)
-                {
-                    if(dFeatures[5] <= 41.50)
-                    {
-                        if(dFeatures[0] <= 0.32)
-                        {
-                            if(dFeatures[2] <= 4.92)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[4] <= 25.00)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[5] <= 16.50)
-                    {
-                        if(dFeatures[0] <= 29.14)
-                        {
-                            if(dFeatures[1] <= 34.27)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 4.12)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[0] <= 786.56)
-                        {
-                            return 0;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[2] <= 0.01)
-                {
-                    if(dFeatures[5] <= 20.50)
-                    {
-                        if(dFeatures[2] <= 0.00)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[4] <= 21.50)
-                        {
-                            return 0;
-                        }
-                        else
-                        {
-                            if(dFeatures[0] <= 0.53)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[2] <= 2.14)
-                    {
-                        if(dFeatures[2] <= 2.10)
-                        {
-                            if(dFeatures[4] <= 4.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 0;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[2] <= 5.21)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    else
-    {
-        if(dFeatures[5] <= 18.50)
-        {
-            if(dFeatures[2] <= 0.49)
-            {
-                if(dFeatures[4] <= 6.50)
-                {
-                    if(dFeatures[2] <= 0.00)
-                    {
-                        if(dFeatures[3] <= 0.00)
-                        {
-                            if(dFeatures[4] <= 3.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 29.47)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[2] <= 0.00)
-                        {
-                            if(dFeatures[2] <= 0.00)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[0] <= 2211.95)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[1] <= 0.72)
-                    {
-                        if(dFeatures[2] <= 0.00)
-                        {
-                            if(dFeatures[5] <= 15.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[3] <= 0.01)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[2] <= 0.01)
-                        {
-                            if(dFeatures[0] <= 136.38)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[9] <= 0.12)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[0] <= 4.42)
-                {
-                    if(dFeatures[5] <= 8.50)
-                    {
-                        if(dFeatures[0] <= 0.23)
-                        {
-                            if(dFeatures[7] <= 0.38)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[0] <= 4.00)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[3] <= 2.92)
-                        {
-                            if(dFeatures[3] <= 1.70)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[0] <= 0.19)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[2] <= 4.30)
-                    {
-                        if(dFeatures[9] <= 0.12)
-                        {
-                            if(dFeatures[5] <= 4.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 0.57)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[5] <= 15.50)
-                        {
-                            if(dFeatures[1] <= 135.51)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 5.54)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        else
-        {
-            if(dFeatures[9] <= 0.38)
-            {
-                if(dFeatures[2] <= 0.00)
-                {
-                    if(dFeatures[4] <= 43.50)
-                    {
-                        if(dFeatures[9] <= 0.12)
-                        {
-                            if(dFeatures[0] <= 4.32)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            return 0;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[3] <= 0.00)
-                        {
-                            return 0;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[4] <= 92.00)
-                    {
-                        if(dFeatures[4] <= 66.50)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[0] <= 0.45)
-                        {
-                            return 0;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[3] <= 4.81)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-        }
-    }
-}
-else
-{
-    if(dFeatures[5] <= 10.50)
-    {
-        if(dFeatures[8] <= 0.38)
-        {
-            if(dFeatures[0] <= 54.07)
-            {
-                if(dFeatures[4] <= 6.50)
-                {
-                    if(dFeatures[0] <= 9.81)
-                    {
-                        if(dFeatures[3] <= 1.35)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[7] <= 0.12)
-                        {
-                            if(dFeatures[0] <= 10.32)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 7.48)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[2] <= 0.00)
-                    {
-                        if(dFeatures[2] <= 0.00)
-                        {
-                            if(dFeatures[0] <= 0.32)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[3] <= 0.00)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[0] <= 0.86)
-                        {
-                            if(dFeatures[2] <= 1.09)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 0.01)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[3] <= 4.69)
-                {
-                    if(dFeatures[2] <= 0.32)
-                    {
-                        if(dFeatures[6] <= 0.62)
-                        {
-                            if(dFeatures[2] <= 0.18)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 0;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[6] <= 0.12)
-                        {
-                            if(dFeatures[1] <= 24.07)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 1.21)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[0] <= 96.72)
-                    {
-                        if(dFeatures[0] <= 80.05)
-                        {
-                            if(dFeatures[0] <= 66.93)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[3] <= 10.19)
-                        {
-                            if(dFeatures[4] <= 2.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[9] <= 0.12)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        else
-        {
-            if(dFeatures[0] <= 0.29)
-            {
-                return 1;
-            }
-            else
-            {
-                if(dFeatures[0] <= 20.22)
-                {
-                    if(dFeatures[1] <= 0.70)
-                    {
-                        if(dFeatures[4] <= 17.50)
-                        {
-                            return 0;
-                        }
-                        else
-                        {
-                            if(dFeatures[0] <= 0.33)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[2] <= 0.99)
-                        {
-                            if(dFeatures[1] <= 1.82)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[4] <= 4.50)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[0] <= 178.78)
-                    {
-                        if(dFeatures[0] <= 65.08)
-                        {
-                            if(dFeatures[1] <= 132.19)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[9] <= 0.12)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[0] <= 237.49)
-                        {
-                            if(dFeatures[5] <= 5.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 179.04)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    else
-    {
-        if(dFeatures[8] <= 0.38)
-        {
-            if(dFeatures[4] <= 31.50)
-            {
-                if(dFeatures[1] <= 1.53)
-                {
-                    if(dFeatures[2] <= 0.00)
-                    {
-                        if(dFeatures[4] <= 11.50)
-                        {
-                            return 0;
-                        }
-                        else
-                        {
-                            if(dFeatures[9] <= 0.12)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[3] <= 0.01)
-                        {
-                            if(dFeatures[5] <= 17.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 1.31)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[2] <= 0.01)
-                    {
-                        if(dFeatures[3] <= 0.00)
-                        {
-                            if(dFeatures[1] <= 2.38)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[5] <= 23.50)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[0] <= 1535.76)
-                        {
-                            if(dFeatures[1] <= 1423.20)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[7] <= 0.62)
-                {
-                    if(dFeatures[3] <= 8.60)
-                    {
-                        if(dFeatures[3] <= 4.63)
-                        {
-                            if(dFeatures[2] <= 2.22)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[4] <= 33.00)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[5] <= 54.50)
-                    {
-                        if(dFeatures[1] <= 0.37)
-                        {
-                            if(dFeatures[0] <= 0.15)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 8.17)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[2] <= 0.01)
-                        {
-                            return 0;
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                }
-            }
-        }
-        else
-        {
-            if(dFeatures[1] <= 304.99)
-            {
-                if(dFeatures[0] <= 1.16)
-                {
-                    if(dFeatures[6] <= 0.12)
-                    {
-                        if(dFeatures[0] <= 0.18)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 0.00)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[5] <= 26.50)
-                        {
-                            if(dFeatures[4] <= 27.00)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 0;
-                        }
-                    }
-                }
-                else
-                {
-                    if(dFeatures[1] <= 1.47)
-                    {
-                        if(dFeatures[4] <= 13.50)
-                        {
-                            if(dFeatures[3] <= 0.03)
-                            {
-                                return 0;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            return 1;
-                        }
-                    }
-                    else
-                    {
-                        if(dFeatures[4] <= 88.50)
-                        {
-                            if(dFeatures[2] <= 5.83)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[3] <= 0.02)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if(dFeatures[2] <= 0.59)
-                {
-                    if(dFeatures[3] <= 1.09)
-                    {
-                        if(dFeatures[4] <= 14.50)
-                        {
-                            return 1;
-                        }
-                        else
-                        {
-                            if(dFeatures[2] <= 0.06)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[9] <= 0.38)
-                    {
-                        if(dFeatures[3] <= 0.56)
-                        {
-                            if(dFeatures[2] <= 2.72)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 0;
-                            }
-                        }
-                        else
-                        {
-                            if(dFeatures[1] <= 1246.82)
-                            {
-                                return 1;
-                            }
-                            else
-                            {
-                                return 1;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        return 1;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-UInt TTrEngine::xdecide_depth1_QP32_v3(Double *dFeatures)
-{
-if(dFeatures[3] <= 0.00)
-{
-    if(dFeatures[7] <= 0.12)
-    {
-        if(dFeatures[1] <= 0.37)
-        {
-            if(dFeatures[0] <= 685.18)
-            {
-                if(dFeatures[0] <= 127.05)
-                {
-                    if(dFeatures[2] <= 0.81)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[0] <= 131.35)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
-                }
-            }
-            else
-            {
-                return 0;
-            }
+            return 0;
         }
         else
         {
@@ -10143,98 +9307,49 @@ if(dFeatures[3] <= 0.00)
     }
     else
     {
-        if(dFeatures[2] <= 0.00)
+        if(dFeatures[0] <= 48.50)
         {
-            if(dFeatures[7] <= 0.38)
+            if(dFeatures[0] <= 27.50)
             {
-                if(dFeatures[1] <= 52.53)
+                if(dFeatures[2] <= 0.38)
                 {
-                    if(dFeatures[0] <= 1.34)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
                 else
                 {
-                    if(dFeatures[0] <= 131.99)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
             }
             else
             {
-                if(dFeatures[1] <= 586.27)
+                if(dFeatures[2] <= 0.12)
                 {
-                    if(dFeatures[5] <= 2.50)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 0;
                 }
                 else
                 {
-                    if(dFeatures[0] <= 682.52)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 1;
                 }
             }
         }
         else
         {
-            if(dFeatures[8] <= 0.12)
+            if(dFeatures[2] <= 0.88)
             {
-                if(dFeatures[0] <= 39.08)
+                if(dFeatures[0] <= 70.50)
                 {
-                    if(dFeatures[6] <= 0.12)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
+                    return 1;
                 }
                 else
                 {
-                    if(dFeatures[0] <= 41.12)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
             }
             else
             {
-                if(dFeatures[4] <= 4.50)
+                if(dFeatures[1] <= 37.50)
                 {
-                    if(dFeatures[2] <= 0.01)
-                    {
-                        return 0;
-                    }
-                    else
-                    {
-                        return 1;
-                    }
+                    return 0;
                 }
                 else
                 {
@@ -10246,54 +9361,74 @@ if(dFeatures[3] <= 0.00)
 }
 else
 {
-    if(dFeatures[8] <= 0.12)
+    if(dFeatures[1] <= 53.50)
     {
-        if(dFeatures[7] <= 0.62)
+        if(dFeatures[2] <= 0.88)
         {
-            if(dFeatures[1] <= 52.27)
+            if(dFeatures[1] <= 47.50)
             {
-                if(dFeatures[2] <= 0.01)
-                {
-                    return 0;
-                }
-                else
-                {
-                    return 0;
-                }
+                return 0;
             }
             else
             {
-                if(dFeatures[0] <= 123.09)
-                {
-                    if(dFeatures[0] <= 120.00)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
-                else
-                {
-                    if(dFeatures[4] <= 30.00)
-                    {
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
+                return 0;
             }
         }
         else
         {
-            if(dFeatures[5] <= 8.50)
+            if(dFeatures[0] <= 47.50)
             {
-                if(dFeatures[3] <= 3.22)
+                return 0;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+    else
+    {
+        if(dFeatures[0] <= 119.50)
+        {
+            return 0;
+        }
+        else
+        {
+            return 0;
+            }
+        }
+    }
+}
+
+UInt TTrEngine::xdecide_depth1_QP27_v3(Double *dFeatures)
+{
+if(dFeatures[0] <= 6.50)
+{
+    return 1;
+}
+else
+{
+    return 0;
+    }
+}
+
+UInt TTrEngine::xdecide_depth1_QP32_v3(Double *dFeatures)
+{
+if(dFeatures[2] <= 0.12)
+{
+    if(dFeatures[1] <= 1.50)
+    {
+        return 1;
+    }
+    else
+    {
+        if(dFeatures[1] <= 6.50)
+        {
+            if(dFeatures[0] <= 7.50)
+            {
+                if(dFeatures[1] <= 4.50)
                 {
-                    if(dFeatures[1] <= 1.30)
+                    if(dFeatures[0] <= 4.50)
                     {
                         return 0;
                     }
@@ -10304,23 +9439,58 @@ else
                 }
                 else
                 {
-                    if(dFeatures[0] <= 143.63)
+                    if(dFeatures[0] <= 6.50)
                     {
-                        return 1;
+                        if(dFeatures[0] <= 5.50)
+                        {
+                            return 0;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
                     }
                     else
                     {
-                        return 0;
+                        return 1;
                     }
                 }
             }
             else
             {
-                if(dFeatures[0] <= 3.98)
+                return 0;
+            }
+        }
+        else
+        {
+            if(dFeatures[1] <= 20.50)
+            {
+                if(dFeatures[1] <= 15.00)
                 {
-                    if(dFeatures[2] <= 0.00)
+                    if(dFeatures[1] <= 12.50)
                     {
-                        return 1;
+                        if(dFeatures[1] <= 8.50)
+                        {
+                            if(dFeatures[0] <= 12.00)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[0] <= 9.50)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 1;
+                            }
+                        }
                     }
                     else
                     {
@@ -10329,7 +9499,81 @@ else
                 }
                 else
                 {
-                    if(dFeatures[0] <= 89.47)
+                    if(dFeatures[1] <= 16.50)
+                    {
+                        if(dFeatures[0] <= 20.00)
+                        {
+                            return 0;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                    else
+                    {
+                        if(dFeatures[0] <= 22.00)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                return 0;
+            }
+        }
+    }
+}
+else
+{
+    if(dFeatures[0] <= 1.50)
+    {
+        if(dFeatures[2] <= 0.38)
+        {
+            if(dFeatures[0] <= 0.50)
+            {
+                return 0;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        else
+        {
+            if(dFeatures[2] <= 0.62)
+            {
+                if(dFeatures[1] <= 0.50)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                if(dFeatures[0] <= 0.50)
+                {
+                    if(dFeatures[2] <= 0.88)
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+                else
+                {
+                    if(dFeatures[2] <= 0.88)
                     {
                         return 0;
                     }
@@ -10343,15 +9587,15 @@ else
     }
     else
     {
-        if(dFeatures[0] <= 19.51)
+        if(dFeatures[1] <= 17.50)
         {
-            if(dFeatures[1] <= 1.07)
+            if(dFeatures[1] <= 15.50)
             {
-                if(dFeatures[0] <= 0.26)
+                if(dFeatures[0] <= 11.50)
                 {
-                    if(dFeatures[5] <= 12.50)
+                    if(dFeatures[0] <= 4.50)
                     {
-                        return 1;
+                        return 0;
                     }
                     else
                     {
@@ -10360,34 +9604,90 @@ else
                 }
                 else
                 {
-                    if(dFeatures[2] <= 0.00)
+                    if(dFeatures[0] <= 40.50)
                     {
-                        return 1;
+                        if(dFeatures[0] <= 17.50)
+                        {
+                            if(dFeatures[1] <= 14.50)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[0] <= 21.50)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 1;
+                            }
+                        }
                     }
                     else
                     {
-                        return 0;
+                        return 1;
                     }
                 }
             }
             else
             {
-                if(dFeatures[4] <= 7.50)
+                if(dFeatures[2] <= 0.38)
                 {
-                    if(dFeatures[3] <= 7.17)
+                    if(dFeatures[1] <= 16.50)
                     {
-                        return 0;
+                        if(dFeatures[0] <= 21.00)
+                        {
+                            if(dFeatures[0] <= 17.00)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            if(dFeatures[0] <= 22.50)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 1;
+                            }
+                        }
                     }
                     else
                     {
-                        return 0;
+                        if(dFeatures[0] <= 25.00)
+                        {
+                            return 0;
+                        }
+                        else
+                        {
+                            return 1;
+                        }
                     }
                 }
                 else
                 {
-                    if(dFeatures[2] <= 0.13)
+                    if(dFeatures[0] <= 44.00)
                     {
-                        return 1;
+                        if(dFeatures[2] <= 0.62)
+                        {
+                            return 0;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
                     else
                     {
@@ -10398,24 +9698,66 @@ else
         }
         else
         {
-            if(dFeatures[3] <= 6.94)
+            if(dFeatures[0] <= 41.50)
             {
-                if(dFeatures[5] <= 18.50)
+                if(dFeatures[1] <= 22.50)
                 {
-                    if(dFeatures[3] <= 6.85)
+                    if(dFeatures[0] <= 18.50)
                     {
-                        return 0;
+                        if(dFeatures[2] <= 0.88)
+                        {
+                            if(dFeatures[2] <= 0.62)
+                            {
+                                return 1;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            return 1;
+                        }
                     }
                     else
                     {
-                        return 1;
+                        if(dFeatures[0] <= 39.50)
+                        {
+                            if(dFeatures[0] <= 23.50)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            return 1;
+                        }
                     }
                 }
                 else
                 {
-                    if(dFeatures[1] <= 68.87)
+                    if(dFeatures[0] <= 40.50)
                     {
-                        return 1;
+                        if(dFeatures[1] <= 32.50)
+                        {
+                            if(dFeatures[1] <= 23.50)
+                            {
+                                return 0;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
                     else
                     {
@@ -10425,22 +9767,36 @@ else
             }
             else
             {
-                if(dFeatures[1] <= 160.19)
+                if(dFeatures[0] <= 61.00)
                 {
-                    if(dFeatures[3] <= 7.36)
+                    if(dFeatures[2] <= 0.38)
                     {
-                        return 1;
+                        return 0;
                     }
                     else
                     {
-                        return 0;
+                        if(dFeatures[2] <= 0.62)
+                        {
+                            if(dFeatures[1] <= 28.50)
+                            {
+                                return 1;
+                            }
+                            else
+                            {
+                                return 0;
+                            }
+                        }
+                        else
+                        {
+                            return 0;
+                        }
                     }
                 }
                 else
                 {
-                    if(dFeatures[2] <= 6.65)
+                    if(dFeatures[0] <= 71.50)
                     {
-                        return 0;
+                        return 1;
                     }
                     else
                     {
@@ -10455,7 +9811,7 @@ else
 
 UInt TTrEngine::xdecide_depth1_QP37_v3(Double *dFeatures)
 {
-if(dFeatures[3] <= 0.00)
+if(dFeatures[2] <= 0.12)
 {
     return 1;
 }
