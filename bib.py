@@ -55,12 +55,12 @@ class Data():
 
         df_train = pd.DataFrame()
         for training_seq in training_seqs:
-            aux = pd.read_csv('Data/'+training_seq,sep='|')
+            aux = pd.read_csv('DataOnline/'+training_seq,sep='|')
             df_train = pd.concat([df_train,aux], sort=False)
 
         df_valid = pd.DataFrame()
         for valid_seq in valid_seqs:
-            aux = pd.read_csv('Data/'+valid_seq,sep='|')
+            aux = pd.read_csv('DataOnline/'+valid_seq,sep='|')
             df_valid = pd.concat([df_valid,aux], sort=False)
 
         qp = df_train.iloc[:,23].values
@@ -107,7 +107,7 @@ class Data():
             idxs1_keep = np.random.choice(idxs1,size=n0.astype('int'),replace=False)
             self.features_train = np.vstack((self.features_train[idxs0,:],self.features_train[idxs1_keep,:]))
             self.classes_train = np.hstack((self.classes_train[idxs0],self.classes_train[idxs1_keep]))
-        
+
 
             #import pdb; pdb.set_trace()
 
