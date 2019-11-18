@@ -5,7 +5,7 @@ train_QP_27 = ['Cactus_QP_27_depth1.csv']
 train_QP_32 = ['Cactus_QP_32_depth1.csv']
 train_QP_37 = ['Cactus_QP_37_depth1.csv']
 
-max_depths = [5,1,8,1]
+max_depths = [7,7,3,3]
 trains = [train_QP_22, train_QP_27, train_QP_32, train_QP_37]
 qps = [22,27,32,37]
 
