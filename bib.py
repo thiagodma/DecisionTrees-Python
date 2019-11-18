@@ -5,6 +5,7 @@ import os
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree.export import export_text
 from sklearn.tree._tree import TREE_LEAF
+from sklearn.model_selection import train_test_split
 
 class Data():
 
@@ -45,7 +46,7 @@ class Data():
                 df0.to_csv(output_dir+'/'+seq+'_'+qp+'_depth0.csv',sep='|',encoding='utf-8',index=False, )
                 df1.to_csv(output_dir+'/'+seq+'_'+qp+'_depth1.csv',sep='|',encoding='utf-8',index=False)
 
-    def load_data(self, training_seqs:list, valid_seqs:list, ftk=None, balanced:bool=False):
+    def load_data(self, training_seqs:list, ftk=None, balanced:bool=False):
         '''
         Loads the data in the class
         '''
@@ -57,11 +58,6 @@ class Data():
             aux = pd.read_csv('DataOnline/'+training_seq,sep='|')
             df_train = pd.concat([df_train,aux], sort=False)
 
-        df_valid = pd.DataFrame()
-        for valid_seq in valid_seqs:
-            aux = pd.read_csv('DataOnline/'+valid_seq,sep='|')
-            df_valid = pd.concat([df_valid,aux], sort=False)
-
         if isinstance(ftk,list):
             f = df_train.iloc[:,ftk].values
         else:
@@ -72,18 +68,10 @@ class Data():
         self.classes_train = df_train.iloc[:,11].values
         self.costs_train = df_train.iloc[:,12:23].values
 
-        if isinstance(ftk,list):
-            f = df_valid.iloc[:,ftk].values
-        else:
-            f = df_valid.iloc[:,1:11].values
-        qp = df_valid.iloc[:,23].values
-        qp.shape = (qp.shape[0],1)
-        self.features_valid = f
-        self.classes_valid = df_valid.iloc[:,11].values
-        self.costs_valid = df_valid.iloc[:,12:23].values
-
         self.classes_train[self.classes_train!=0] = 1
-        self.classes_valid[self.classes_valid!=0] = 1
+
+        self.features_train,self.features_valid,self.classes_train,self.classes_valid,self.costs_train,self.costs_valid=train_test_split(self.features_train,self.classes_train,self.costs_train,test_size=0.2,random_state=42)
+
         #import pdb; pdb.set_trace()
 
         self.simplify_costs()
