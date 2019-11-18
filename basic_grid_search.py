@@ -1,10 +1,10 @@
 from bib import *
 import matplotlib.pyplot as plt
 
-train_QP_22 = ['BasketballDrive_QP_22_depth0.csv']
-train_QP_27 = ['BasketballDrive_QP_27_depth0.csv']
-train_QP_32 = ['BasketballDrive_QP_32_depth0.csv']
-train_QP_37 = ['BasketballDrive_QP_37_depth0.csv']
+train_QP_22 = ['Cactus_QP_22_depth0.csv']
+train_QP_27 = ['Cactus_QP_27_depth0.csv']
+train_QP_32 = ['Cactus_QP_32_depth0.csv']
+train_QP_37 = ['Cactus_QP_37_depth0.csv']
 
 # train_QP_22 = ['BQTerrace_QP_22_depth0.csv']
 # train_QP_27 = ['BQTerrace_QP_27_depth0.csv']
